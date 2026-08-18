@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="icon" href="./Assets/buy2buy-icone-192.png" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="./Assets/buy2buy-icone.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="./Assets/buy2buy-icone-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./Assets/buy2buy-icone-16.png">
+    <link rel="apple-touch-icon" href="./Assets/buy2buy-icone-180.png">
+    <link rel="alternate icon" type="image/png" href="./Assets/buy2buy-icone-32.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buy2Buy </title>
+
+    <link rel="stylesheet" href="./buy.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lilita+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!--------------------------------------------------- Navbar ----------------------------------------------------------->
+<nav class="navbar">
+    <a href="./pagina-de-produtos.html" class="home-icon-navbar" aria-label="Página inicial">
+        <ion-icon name="home-outline"></ion-icon>
+    </a>
+
+    <a href="./carrinho.html" class="cart-link cart-icon-navbar" aria-label="Carrinho">
+        <ion-icon name="cart-outline"></ion-icon>
+        <span class="cart-count">0</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+    </button>
+
+    <a href="./index.html" class="logo-navbar">
+        <img src="./Assets/buy2buy-icone.svg" alt="Logo da Buy2Buy" class="logo">
+    </a>
+
+    <ul class="menu-navbar" id="menuNavbar">
+        <li><a class="font-navbar" href="./pagina-de-produtos.html">HOME</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn" aria-label="Filtros">
+                <ion-icon name="menu-outline"></ion-icon>
+            </a>
+            <ul class="submenu">
+                <li><a href="./pagina-de-produtos.html?categoria=smartwatches" class="filtro-link">Smartwatches</a></li>
+                <li><a href="./pagina-de-produtos.html?categoria=smartphones" class="filtro-link">Smartphones</a></li>
+                <li><a href="./pagina-de-produtos.html?categoria=fone" class="filtro-link">Fones Bluetooth</a></li>
+                <li><a href="./pagina-de-produtos.html?categoria=todos" class="filtro-link">Ver todos</a></li>
+            </ul>
+        </li>
+        <li class="cart-item-desktop">
+            <a href="./carrinho.html" class="cart-link">
+                <ion-icon name="cart-outline"></ion-icon>
+                <span class="cart-count">0</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!------------------------------------------------ Conteúdo do Pagamento (dinâmico) ------------------------------------------------>
+
+<div class="produto">
+    <div class="card-celular">
+        <img id="produto-imagem" src="" alt="" class="celular">
+    </div>
+
+    <div class="produto-info">
+
+        <h2 id="produto-nome"></h2>
+        <p id="produto-armazenamento" class="armazenamento-selecionado"></p>
+
+        <h2 class="price">R$ <span id="preco"></span></h2>
+
+        <div>
+            <button onclick="mostrarQR()" class="btn-imagem">
+                <img src="./Assets/pix.png" alt="pix logo" class="icone-btn">
+                <span> Pix</span>
+            </button>
+            <img id="qrcode" src="qrcode.png" alt="QR Code" class="qrcode-escondido">
+
+            <button onclick="mostrarPesquisa()" class="btn-imagem">
+                <img src="./Assets/mastercard logo.png" alt="pix logo" class="icone-btn">
+                <img src="./Assets/visa logo.png" alt="pix logo" class="icone-btn">
+                <span>Crédito ou débito</span>
+            </button>
+        </div>
+
+        <div id="campoDadosbancarios" class="input-topzera">
+            <input type="tel" placeholder="Número do cartão" maxlength="16">
+            <input type="text" placeholder="Nome do titular" autocapitalize="characters">
+            <input type="tel" placeholder="Vencimento">
+            <input type="tel" placeholder="Código de segurança" maxlength="3">
+            <input type="tel" placeholder="Documento do titular" maxlength="11">
+        </div>
+
+        <div>
+            <a href="#" id="link-finalizar" class="btn-comprar">
+                <button class="btn-cor">Finalizar</button>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!---------------------------------------------------------- Rodapé ---------------------------------------------------------->
+<footer class="footer">
+    <div class="footer-content">
+        <ul class="footer-links">
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Privacidade</a></li>
+        </ul>
+    </div>
+    <div>
+        <img src="./Assets/buy2buy-icone.svg" alt="Logo da Buy2Buy no rodapé">
+    </div>
+    <div id="social-media">
+        <a href="https://www.instagram.com/ocaiqueecandidoo/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="https://www.linkedin.com/in/caique-candido-a59b031ba/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+        <a href="https://github.com/caiquecandido99" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+
+<script src="./qrcode.js"></script>
+<script src="./input.js"></script>
+<script src="./switch-preco.js"></script>
+<script src="./navbar responsiva.js"></script>
+
+<!-- IMPORTANTE: produtos-data.js e cart.js precisam vir ANTES de buy.js -->
+<script src="./produtos-data.js"></script>
+<script src="./cart.js"></script>
+<script src="./buy.js"></script>
+<script src="./produto.js"></script>
+<script src="./cor-celular.js"></script>
+<script src="./filtro.js"></script>
+
+</body>
+</html>

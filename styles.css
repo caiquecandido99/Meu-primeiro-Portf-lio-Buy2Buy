@@ -1,0 +1,1838 @@
+/******************************************************* Fontes*****************************************************************************************************/
+ 
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lilita+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+  
+/*********************************************************** Raíz da página ****************************************************************************************************/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/********************************************************  Corpo da página ****************************************************************************************************/
+
+body {
+    background: #f5f7fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    list-style: none;
+}
+
+main {
+    flex: 1;
+    padding: 8px;
+}
+
+/*************************************************************************** Navbar ************************************************************************************/
+
+.navbar {
+    width: 100%;
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(100px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    display: flex;
+    position: fixed;
+    top: 20px;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100px;
+    padding: 0px 20px;
+    height: 100px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+}
+
+.menu-navbar {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+li {
+    float: left;
+}
+
+.menu-navbar,
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+    display: flex;
+}
+
+.menu-navbar > li {
+    position: relative;
+}
+
+.menu-navbar a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #ffff;
+}
+
+/* =====================================================
+   SUBMENU DESKTOP
+===================================================== */
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    min-width: 220px;
+    margin-top: 38px;
+
+    background: rgba(17, 24, 39, 0.75);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(100px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+    border-radius: 30px;
+
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    padding: 20px;
+
+    z-index: 1001;
+}
+
+.submenu:hover {
+    color: #fff;
+    border-radius: 30px;
+    transition: 0.3s;
+
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+    font-style: normal;
+}
+
+.dropdown.active .submenu {
+    display: block;
+}
+
+.menu-navbar .dropbtn,
+.dropbtn {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 64px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    box-shadow: 0 4px 14px 0 rgba(31, 38, 135, 0.2);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.menu-navbar .dropbtn ion-icon,
+.dropbtn ion-icon {
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+/* Efeito ao passar o mouse e enquanto o dropdown estiver aberto */
+
+.dropbtn:hover,
+.dropdown.active .dropbtn {
+    background: rgba(255, 255, 255, 0.22);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.28);
+
+    border-radius: 8px;
+
+    transform: scale(1.05);
+}
+
+/* =====================================================
+   BOTÃO DE FILTROS (hambúrguer) — MOBILE
+   -----------------------------------------------------
+   No menu mobile, os itens ocupam a largura toda do
+   painel arredondado. O botão de filtros, sendo uma
+   caixinha de tamanho fixo, precisa de respiro nas
+   laterais pra não ficar colado/vazando na borda
+   arredondada do painel.
+===================================================== */
+
+@media screen and (max-width: 896px) {
+
+    .menu-navbar .dropbtn,
+    .dropbtn {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 14px 0;
+        border-radius: 20px;
+        justify-content: center;
+    }
+
+}
+
+.submenu li {
+    width: 100%;
+}
+
+/* ===== EFEITO HOVER NOS LINKS DO SUBMENU ===== */
+
+.submenu li a {
+    border-radius: 40px;
+
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        backdrop-filter 0.25s ease,
+        -webkit-backdrop-filter 0.25s ease,
+        transform 0.25s ease;
+}
+
+.submenu li a:hover {
+    background: rgba(39, 39, 39, 0.1);
+
+    color: #fff;
+
+    border-radius: 40px;
+
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+    transform: scale(1.03);
+
+    font-style: normal;
+}
+
+/* =====================================================
+   NOVA ESTRUTURA DA NAVBAR
+   -----------------------------------------------------
+   Logo à esquerda, ícone de "Home" (casa) logo ao lado
+   (sempre visível, fora do hambúrguer). Carrinho + botão
+   de Filtros (hambúrguer com borda) agrupados à direita,
+   também sempre visíveis — sem precisar de um segundo
+   hambúrguer só pra abrir esse grupo.
+===================================================== */
+
+.home-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-left: 100px;
+    color: #fff;
+    border-radius: 12px;
+    transition: background 0.3s ease;
+}
+
+.home-link ion-icon {
+    font-size: 26px;
+}
+
+.home-link:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.navbar-direita {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.font-navbar {
+    display: flex;
+
+    text-decoration: none;
+
+    color: #fff;
+
+    font-size: 25px;
+
+    text-align: center;
+
+    padding: 14px 16px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.font-navbar:hover {
+    background: rgba(39, 39, 39, 0.1);
+
+    color: #fff;
+
+    border-radius: 40px;
+
+    transition: 0.3s;
+
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+    font-style: normal;
+}
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+img.logo {
+    width: 80px;
+    height: 80px;
+
+    top: 0px;
+
+    display: flex;
+
+    padding: 10px 10px 10px 10px;
+
+    align-items: center;
+
+    position: absolute;
+}
+
+/* =====================================================
+   BOTÃO HAMBÚRGUER
+===================================================== */
+
+.menu-toggle {
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    z-index: 20;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 3px;
+
+    background: #fff;
+
+    border-radius: 2px;
+
+    transition: 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* =====================================================
+   ÍCONE DO CARRINHO (navbar)
+===================================================== */
+
+.menu-navbar a.cart-link {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+}
+
+.cart-link ion-icon {
+    font-size: 26px;
+}
+
+.cart-count {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background: #ff3b30;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+
+    border-radius: 50%;
+    line-height: 1;
+}
+
+/* =====================================================
+   PESQUISA
+===================================================== */
+
+.search-container {
+    position: fixed;
+
+    top: 150px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(650px, calc(100% - 30px));
+
+    height: 60px;
+
+    padding: 0 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    background: rgba(17, 24, 39, 0.75);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(100px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 50px;
+
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    z-index: 999;
+}
+
+.search-container ion-icon {
+    font-size: 24px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    flex-shrink: 0;
+}
+
+.search-container input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;   /* <-- adicionar */
+}
+
+.search-container input::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/********************************************************** Conteúdo *****************************************************************************************************/
+
+.font-content {
+    font-family: "Inter", sans-serif;
+
+    text-decoration: none;
+
+    color: #000;
+
+    font-size: 25px;
+
+    padding: 20px;
+
+    font-weight: bold;
+
+    width: 400px;
+
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    cursor: pointer;
+
+    border-radius: 20px;
+
+    box-sizing: border-box;
+}
+
+p {
+    font-weight: bold;
+
+    font-size: 20px;
+}
+
+.imagem-container {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 90px;
+
+    flex-wrap: wrap;
+
+    padding: 300px 29px 29px 29px;
+
+    flex: 1;
+}
+
+.card-celular-top {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    border-radius: 50px;
+
+    align-items: center;
+
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+/* =====================================================
+   CARD DO PRODUTO NO CATÁLOGO (.card-celular)
+   -----------------------------------------------------
+   Container próprio pra cada produto, inspirado no visual
+   de cards de e-commerce (tipo Amazon): fundo branco, borda
+   arredondada, sombra suave e leve elevação no hover — mas
+   com a identidade visual do C-TECH (mais arredondado, sem
+   cinza/bordas retas).
+===================================================== */
+
+.card-celular {
+    display: flex;
+
+    width: 250px;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border-radius: 28px;
+
+    padding: 18px 16px 22px 16px;
+
+    box-shadow: 0 2px 10px rgba(17, 24, 39, 0.06);
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card-celular:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 14px 28px rgba(17, 24, 39, 0.14);
+}
+
+.card-celular h1 {
+    font-size: 18px;
+
+    padding: 4px 0 0 0;
+
+    line-height: 1.25;
+}
+
+.card-celular p {
+    font-size: 16px;
+
+    padding: 0;
+
+    margin-top: 4px;
+}
+
+/* =====================================================
+   BOTÃO "ADICIONAR AO CARRINHO" NO CARD DO CATÁLOGO
+===================================================== */
+
+.btn-add-carrinho {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    width: 100%;
+
+    margin-top: 14px;
+
+    padding: 10px 14px;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+}
+
+.btn-add-carrinho ion-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.btn-add-carrinho:hover {
+    background: #000;
+
+    transform: translateY(-1px);
+}
+
+.btn-add-carrinho:active {
+    transform: translateY(0);
+}
+
+.btn-add-carrinho.adicionado {
+    background: #c0392b;
+}
+
+.btn-add-carrinho.adicionado:hover {
+    background: #a93226;
+}
+
+.card-celular-top {
+    padding: 20px;
+}
+
+.celular-link {
+    display: block;
+
+    text-decoration: none;
+}
+
+/* =====================================================
+   IMAGEM DO PRODUTO NO CATÁLOGO (.celular)
+   -----------------------------------------------------
+   Antes: só a largura era fixa (600px) e a altura ficava
+   "auto", então fotos com mais espaço em branco ao redor
+   do aparelho (como as dos "Ultra") pareciam menores que
+   as outras, mesmo com a mesma largura de caixa.
+
+   Agora: a caixa da imagem é um quadrado de tamanho fixo
+   (largura E altura), e "object-fit: contain" encaixa a
+   foto inteira dentro dela sem distorcer — assim todos os
+   cards ficam com o mesmo tamanho de verdade.
+
+   "mix-blend-mode: multiply" é um truque de CSS pra fazer
+   o fundo branco da foto se misturar com o fundo da página
+   e parecer transparente. Não é transparência real (isso só
+   dá pra fazer editando a imagem em si), mas como o fundo do
+   site é bem claro, o efeito visual fica bem parecido.
+===================================================== */
+
+.celular {
+    width: 220px;
+    height: 220px;
+
+    object-fit: contain;
+    object-position: center;
+
+    max-width: 100%;
+
+    display: block;
+    margin: 0 auto;
+
+    mix-blend-mode: multiply;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    cursor: pointer;
+}
+
+.celular:hover {
+    transform: scale(1.05);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.celular:active {
+    transform: scale(0.97);
+}
+
+.celular-1 {
+    width: 900px;
+
+    max-width: 100%;
+
+    display: block;
+
+    height: auto;
+
+    border-radius: 50px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    cursor: pointer;
+}
+
+.celular-1:hover {
+    transform: scale(1.03);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.celular-1:active {
+    transform: scale(0.98);
+}
+
+.font-content {
+    width: 400px;
+
+    object-fit: fill;
+
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    cursor: pointer;
+
+    border-radius: 20px;
+}
+
+/********************************************************** Rodapé *****************************************************************************************************/
+
+.footer {
+    width: 100%;
+
+    padding: 30px 60px;
+
+    box-sizing: border-box;
+
+    background: #000;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.footer-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    order: 2;
+}
+
+.footer-links {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.footer-links a {
+    font-family: "Inter", sans-serif;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    color: #fff;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+    opacity: 0.7;
+}
+
+footer img {
+    width: 110px;
+
+    height: 110px;
+
+    display: block;
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+footer img:hover {
+    transform: scale(1.1);
+
+    filter: brightness(1.2);
+}
+
+footer > div:has(img) {
+    order: 3;
+}
+
+#social-media {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    order: 1;
+}
+
+#social-media ion-icon {
+    color: #fff;
+
+    font-size: 24px;
+}
+
+/* ==================================================================================================
+   RESPONSIVO TABLET E CELULAR — ATÉ 896px
+================================================================================================== */
+
+@media screen and (max-width: 896px) {
+
+    .search-container {
+        transition: top 0.3s ease;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 16px;
+        left: 18px;
+        right: 18px;
+
+        width: auto;
+        height: 84px;
+        min-height: 84px;
+
+        margin: 0;
+        padding: 0 22px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(17, 24, 39, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(100px);
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 50px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+        box-sizing: border-box;
+        z-index: 1000;
+    }
+
+    /* Logo na lateral esquerda */
+    .logo-navbar {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        margin: 0;
+        padding: 0;
+
+        z-index: 1002;
+    }
+
+    img.logo {
+        position: static;
+        display: block;
+
+        width: 68px;
+        height: 68px;
+
+        padding: 5px;
+
+        object-fit: contain;
+        box-sizing: border-box;
+    }
+
+    /* Hambúrguer centralizado */
+    .menu-toggle {
+        position: absolute;
+        display: flex;
+
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 46px;
+        height: 46px;
+
+        padding: 0;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        z-index: 1003;
+    }
+
+    .menu-toggle span {
+        width: 28px;
+        height: 3px;
+
+        background: #fff;
+        border-radius: 2px;
+
+        transition: 0.3s;
+    }
+
+    /* =====================================================
+       MENU PRINCIPAL
+    ===================================================== */
+
+    .menu-navbar {
+        display: none;
+        position: absolute;
+
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+
+        width: 100%;
+
+        margin: 0;
+        padding: 10px 0;
+        gap: 0;
+
+        flex-direction: column;
+
+        background: rgba(17, 24, 39, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(100px);
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 20px;
+
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+        box-sizing: border-box;
+    }
+
+    .menu-navbar.active {
+        display: flex;
+    }
+
+    .menu-navbar > li {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-navbar a,
+    .font-navbar {
+        display: block;
+        width: 100%;
+
+        padding: 14px 8px;
+
+        font-size: 20px;
+
+        box-sizing: border-box;
+    }
+
+    .menu-navbar a.cart-link {
+        display: flex;
+    }
+
+    /* =====================================================
+       DROPDOWN MOBILE
+    ===================================================== */
+
+    .dropdown {
+        position: relative;
+        display: block;
+        width: 100%;
+        float: none;
+    }
+
+    .dropbtn {
+        display: block;
+        width: 100%;
+
+        text-align: center;
+
+        box-sizing: border-box;
+    }
+
+    /* =====================================================
+       SUBMENU FECHADO
+       Não usa display:none para permitir animação
+    ===================================================== */
+
+    .submenu {
+        position: relative;
+
+        /* Reseta totalmente o posicionamento herdado do desktop */
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        min-width: 0;
+
+        max-height: 0;
+
+        margin: 0;
+        padding: 0;
+
+        overflow: hidden;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(-10px);
+
+        background: transparent;
+
+        border: none;
+        border-radius: 0;
+
+        box-shadow: none;
+
+        pointer-events: none;
+
+        transition:
+            max-height 0.7s ease,
+            opacity 0.5s ease,
+            transform 0.7s ease,
+            padding 0.7s ease,
+            visibility 0s linear 0.7s;
+    }
+
+    /* =====================================================
+       SUBMENU ABERTO PELO CLIQUE
+    ===================================================== */
+
+    .dropdown.active .submenu {
+        max-height: 360px;
+
+        padding: 10px 0;
+
+        opacity: 1;
+        visibility: visible;
+
+        transform: translateY(0);
+
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+        pointer-events: auto;
+
+        transition:
+            max-height 0.7s ease,
+            opacity 0.5s ease,
+            transform 0.7s ease,
+            padding 0.7s ease,
+            visibility 0s linear 0s;
+    }
+
+    /* No mobile o hover não controla a abertura.
+       Quem controla é apenas .dropdown.active via JavaScript. */
+    .dropdown:hover .submenu {
+        max-height: 0;
+        padding: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-15px);
+        pointer-events: none;
+    }
+
+    .dropdown.active:hover .submenu {
+        max-height: 360px;
+        padding: 10px 0;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .submenu li {
+        width: 100%;
+        float: none;
+    }
+
+    .submenu li a {
+        display: block;
+        width: 100%;
+
+        padding: 14px 10px;
+
+        box-sizing: border-box;
+
+        text-align: center;
+        font-size: 18px;
+
+        border-radius: 30px;
+
+        transition:
+            background 0.25s ease,
+            box-shadow 0.25s ease,
+            backdrop-filter 0.25s ease,
+            -webkit-backdrop-filter 0.25s ease,
+            transform 0.25s ease;
+    }
+
+    .submenu li a:hover {
+        background: rgba(255, 255, 255, 0.08);
+
+        color: #fff;
+
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.25);
+
+        transform: scale(1.02);
+    }
+}
+
+/* ==================================================================================================
+   IPADS MENORES E CELULARES GRANDES
+================================================================================================== */
+
+@media screen and (max-width: 600px) {
+
+    .navbar {
+        top: 14px;
+
+        left: 14px;
+
+        right: 14px;
+
+        height: 78px;
+
+        min-height: 78px;
+
+        padding: 0 18px;
+    }
+
+    .logo-navbar {
+        left: 16px;
+    }
+
+    img.logo {
+        width: 62px;
+
+        height: 62px;
+    }
+
+    .menu-toggle {
+        width: 44px;
+
+        height: 44px;
+    }
+
+    .menu-toggle span {
+        width: 27px;
+
+        height: 3px;
+    }
+
+    .menu-navbar {
+        top: calc(100% + 8px);
+    }
+}
+
+/* ==================================================================================================
+   IPHONES PRO MAX E CELULARES DE 6,4"
+================================================================================================== */
+
+@media screen and (max-width: 430px) {
+
+    .navbar {
+        top: 12px;
+
+        left: 10px;
+
+        right: 10px;
+
+        height: 74px;
+
+        min-height: 74px;
+
+        padding: 0 14px;
+    }
+
+    .logo-navbar {
+        left: 13px;
+    }
+
+    img.logo {
+        width: 58px;
+
+        height: 58px;
+
+        padding: 4px;
+    }
+
+    .menu-toggle {
+        width: 42px;
+
+        height: 42px;
+    }
+
+    .menu-toggle span {
+        width: 25px;
+
+        height: 3px;
+
+        gap: 5px;
+    }
+
+    .menu-navbar a,
+    .font-navbar {
+        padding: 13px 6px;
+
+        font-size: 18px;
+    }
+}
+
+/* ==================================================================================================
+   IPHONES NORMAIS E CELULARES MÉDIOS
+================================================================================================== */
+
+@media screen and (max-width: 390px) {
+
+    .navbar {
+        left: 9px;
+
+        right: 9px;
+
+        height: 70px;
+
+        min-height: 70px;
+    }
+
+    .logo-navbar {
+        left: 11px;
+    }
+
+    img.logo {
+        width: 54px;
+
+        height: 54px;
+    }
+
+    input {
+        border-radius: 50px;
+
+        padding: 20px;
+
+        font-family: "Inter", sans-serif;
+
+        color: #000;
+
+        margin: 8px;
+
+        width: 80%;
+
+        max-width: 300px;
+
+        outline: none;
+
+        font-size: 14px;
+
+        text-transform: uppercase;
+    }
+
+    .menu-toggle {
+        width: 40px;
+
+        height: 40px;
+    }
+
+    .menu-toggle span {
+        width: 24px;
+    }
+
+    .menu-navbar {
+        border-radius: 20px;
+    }
+}
+
+/* ==================================================================================================
+   CELULARES DE 5,2" E TELAS ESTREITAS
+================================================================================================== */
+
+@media screen and (max-width: 360px) {
+
+    .navbar {
+        top: 10px;
+
+        left: 7px;
+
+        right: 7px;
+
+        height: 66px;
+
+        min-height: 66px;
+
+        padding: 0 10px;
+    }
+
+    .logo-navbar {
+        left: 9px;
+    }
+
+    img.logo {
+        width: 50px;
+
+        height: 50px;
+
+        padding: 3px;
+    }
+
+    .menu-toggle {
+        width: 38px;
+
+        height: 38px;
+    }
+
+    .menu-toggle span {
+        width: 22px;
+
+        height: 2.5px;
+
+        gap: 5px;
+    }
+
+    .menu-navbar a,
+    .font-navbar {
+        padding: 12px 5px;
+
+        font-size: 17px;
+    }
+}
+
+/* ==================================================================================================
+   CONTEÚDO RESPONSIVO — TABLETS E IPADS
+================================================================================================== */
+
+@media screen and (max-width: 896px) {
+
+    .imagem-container {
+        gap: 50px;
+
+        padding: 250px 24px 40px;
+    }
+
+    .card-celular-top {
+        width: 100%;
+
+        padding: 16px;
+
+        margin-bottom: 30px;
+
+        border-radius: 35px;
+
+        box-sizing: border-box;
+    }
+
+    .card-celular {
+        width: min(300px, 100%);
+    }
+
+    .celular {
+        width: 190px;
+        height: 190px;
+
+        max-width: 100%;
+
+        object-fit: contain;
+    }
+
+    .celular-1 {
+        width: 700px;
+
+        max-width: 100%;
+
+        border-radius: 35px;
+    }
+
+    .font-content {
+        width: 320px;
+
+        max-width: 100%;
+
+        font-size: 23px;
+
+        padding: 18px;
+    }
+
+    p {
+        font-size: 19px;
+    }
+
+    .footer {
+        padding: 28px 35px;
+
+        gap: 25px;
+    }
+
+    footer img {
+        width: 95px;
+
+        height: 95px;
+    }
+
+    #social-media ion-icon {
+        font-size: 27px;
+    }
+}
+
+/* ===== RESPONSIVO DO CATÁLOGO — cascata fina igual ao resto do site ===== */
+
+@media screen and (max-width: 430px) {
+    .card-celular {
+        width: min(220px, 100%);
+        padding: 14px 12px 18px 12px;
+    }
+
+    .celular {
+        width: 170px;
+        height: 170px;
+    }
+
+    .card-celular h1 {
+        font-size: 16px;
+    }
+
+    .card-celular p {
+        font-size: 15px;
+    }
+
+    .btn-add-carrinho {
+        font-size: 13px;
+        padding: 9px 12px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .card-celular {
+        width: min(190px, 100%);
+    }
+
+    .celular {
+        width: 150px;
+        height: 150px;
+    }
+
+    .card-celular h1 {
+        font-size: 15px;
+    }
+
+    .card-celular p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .card-celular {
+        width: min(170px, 100%);
+        padding: 12px 10px 16px 10px;
+    }
+
+    .celular {
+        width: 130px;
+        height: 130px;
+    }
+
+    .btn-add-carrinho {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+}
+
+/* =====================================================
+   REESTRUTURAÇÃO DA NAVBAR MOBILE
+   -----------------------------------------------------
+   - Ícone de casa fixo na esquerda (fora do menu suspenso)
+   - Hambúrguer (com a borda/vidro) fica na direita
+   - Logo passa a morar dentro do menu suspenso
+   - Botão de filtros dentro do menu volta a ser simples,
+     sem a caixinha com borda (isso agora é exclusividade
+     do hambúrguer principal)
+===================================================== */
+
+/* Ícone de casa e itens exclusivos do menu mobile ficam
+   escondidos no desktop por padrão */
+.home-icon-navbar {
+    display: none;
+}
+
+.logo-mobile-item {
+    display: none;
+}
+
+.dropbtn-texto {
+    display: none;
+}
+
+@media screen and (max-width: 896px) {
+
+    /* Ícone de casa aparece fixo na esquerda */
+    /* Casinha (home) fica na DIREITA */
+    .home-icon-navbar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        left: auto;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        width: 46px;
+        height: 46px;
+
+        color: #fff;
+        font-size: 26px;
+
+        z-index: 1002;
+    }
+
+    /* A logo normal (do topo da navbar) some no mobile —
+       ela passa a aparecer só dentro do menu suspenso.
+       !important garante que nenhuma outra regra de
+       breakpoint mais estreito (600/430/390/360) volte
+       a exibir ela sem querer. */
+    .logo-navbar {
+        display: none !important;
+    }
+
+    /* Hambúrguer (com a borda/vidro) fica na ESQUERDA */
+    .menu-toggle {
+        left: 14px;
+        right: auto;
+        transform: translateY(-50%);
+
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 10px;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 4px 14px 0 rgba(31, 38, 135, 0.2);
+    }
+
+    .menu-toggle.active {
+        background: rgba(255, 255, 255, 0.22);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.28);
+    }
+
+    /* "HOME" em texto some do menu suspenso — o ícone de
+       casa já cobre esse papel fora do menu */
+    .menu-navbar > li > a.font-navbar {
+        display: none;
+    }
+
+    /* Logo aparece como primeiro item do menu suspenso */
+    .logo-mobile-item {
+        display: flex;
+        justify-content: center;
+        padding: 18px 0 10px 0;
+    }
+
+    .logo-mobile-item .logo-mobile {
+        /* img.logo (a classe base da logo) usa position:absolute,
+           o que faria essa logo "vazar" pra fora do menu suspenso
+           (relativa à navbar, que é fixed). Resetamos aqui com
+           especificidade maior pra ela ficar quietinha na lista. */
+        position: static !important;
+        top: auto !important;
+        display: block !important;
+
+        width: 56px;
+        height: 56px;
+        padding: 0 !important;
+
+        object-fit: contain;
+    }
+
+    /* Botão de filtros dentro do menu volta a ser "normal",
+       sem a caixinha com borda/vidro */
+    .menu-navbar .dropdown .dropbtn {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 14px 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        justify-content: center;
+    }
+
+    .dropbtn-texto {
+        display: inline;
+        margin-left: 8px;
+        font-size: 20px;
+    }
+
+}
+
+/* =====================================================
+   #produtos-container TAMBÉM USA A CLASSE .imagem-container
+   -----------------------------------------------------
+   Isso é ótimo pra cada FILEIRA de produtos (que também usa
+   essa classe), mas o container PRINCIPAL precisa empilhar
+   título de marca -> título de linha -> fileira de cards
+   verticalmente, não em linha. Como é um ID, tem mais
+   especificidade que a classe e reescreve só a direção,
+   sem afetar as fileiras internas.
+===================================================== */
+
+#produtos-container {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+/* =====================================================
+   CARRINHO CENTRALIZADO NA NAVBAR (mobile) + FILTROS
+   SEM ÍCONE DE HAMBÚRGUER DENTRO DO MENU
+===================================================== */
+
+/* Escondido no desktop — o carrinho de lá continua sendo
+   o de dentro do menu-navbar, como sempre foi */
+.cart-icon-navbar {
+    display: none;
+}
+
+@media screen and (max-width: 896px) {
+
+    /* Carrinho fica centralizado na navbar principal */
+    .cart-icon-navbar {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        color: #fff;
+        font-size: 26px;
+
+        z-index: 1002;
+    }
+
+    /* O carrinho de dentro do menu suspenso some no mobile —
+       o de cima (centralizado na navbar) já cobre esse papel */
+    .cart-item-desktop {
+        display: none;
+    }
+
+    /* Ícone de hambúrguer some do botão "Filtros" dentro do
+       menu — fica só o texto "Filtros" */
+    .menu-navbar .dropdown .dropbtn ion-icon {
+        display: none;
+    }
+
+}
+
+/* =====================================================
+   MENU MOBILE — TIRA O BOTÃO "FILTROS" E DEIXA AS 3
+   CATEGORIAS DIRETO NA LISTA (Smartphones, Smartwatches,
+   Fones Bluetooth), sem precisar clicar pra abrir
+===================================================== */
+
+@media screen and (max-width: 896px) {
+
+    /* O botão "Filtros" (ícone + texto) some por completo */
+    .menu-navbar .dropdown .dropbtn {
+        display: none;
+    }
+
+    /* O submenu deixa de ser uma gaveta escondida/expansível
+       e passa a aparecer sempre, como parte normal da lista */
+.menu-navbar .dropdown .submenu {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    max-height: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(100px);
+    box-shadow: none;
+    transition: none;
+}
+
+    /* "Ver todos" some — fica só as 3 categorias pedidas */
+    .menu-navbar .dropdown .submenu li:last-child {
+        display: none;
+    }
+
+}
+
+/* =====================================================
+   RODAPÉ EMPILHADO NO MOBILE
+   -----------------------------------------------------
+   A logo (footer > div:has(img)) já tem order:3, ou seja,
+   vem depois dos links de navegação (.footer-content,
+   order:2). Bastava trocar o .footer de "row" para "column"
+   e centralizar tudo pra logo ficar centralizada logo
+   abaixo da lista de links (onde está "Privacidade").
+===================================================== */
+
+@media screen and (max-width: 896px) {
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+
+    footer > div:has(img) {
+        margin: 0 auto;
+    }
+
+}

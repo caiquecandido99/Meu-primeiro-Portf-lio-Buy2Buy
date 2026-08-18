@@ -1,0 +1,25 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="badgeGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4338CA"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="cartGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7A18"/>
+      <stop offset="100%" stop-color="#FF9A3D"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="10" y="10" width="180" height="180" rx="44" fill="url(#badgeGrad2)"/>
+
+  <rect x="62" y="38" width="76" height="124" rx="16" fill="#0B1220" opacity="0.15"/>
+  <rect x="58" y="34" width="76" height="124" rx="16" fill="#FFFFFF"/>
+  <rect x="70" y="50" width="52" height="80" rx="6" fill="url(#badgeGrad2)"/>
+  <circle cx="96" cy="144" r="6" fill="#0B1220" opacity="0.25"/>
+
+  <g transform="translate(112,104)">
+    <rect x="0" y="14" width="56" height="46" rx="10" fill="url(#cartGrad2)"/>
+    <path d="M14 22 V14 a14 14 0 0 1 28 0 v8" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="28" cy="38" r="5" fill="#FFFFFF"/>
+  </g>
+</svg>

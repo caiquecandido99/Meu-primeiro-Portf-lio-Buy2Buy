@@ -1,0 +1,1944 @@
+/******************************************************* Fontes*****************************************************************************************************/
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lilita+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+  
+ /*********************************************************** Raíz da página ****************************************************************************************************/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body{
+  margin: 0;
+  padding: 0;
+    overflow-x: hidden;
+}
+
+ /********************************************************  Corpo da página ****************************************************************************************************/
+
+
+
+    body {
+        background: #f5f7fa;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+         background-repeat: no-repeat ;
+         background-size: 100%;
+        list-style: none;
+
+    
+    }
+    
+
+    main {
+        flex: 1;
+        padding: 8px;
+    }
+
+    /*************************************************************************** Navbar ************************************************************************************/
+.navbar {
+    width: 100%;
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(100px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    display: flex;
+    position: fixed;
+    top: 20px;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100px;
+    padding: 0px 20px;
+    height: 100px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+}
+
+
+
+.menu-navbar {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+li {
+    float: left;
+}
+
+
+
+.menu-navbar, .submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+    display: flex;
+}
+
+.menu-navbar > li {
+    position: relative;
+}
+
+.menu-navbar a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #ffff;
+}
+
+.submenu {
+      background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(100px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    left: auto;
+    min-width: 220px;
+    margin-top: 38px;
+    border-radius: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+
+    z-index: 1001;
+}
+
+.submenu:hover {
+    color: #fff;
+    border-radius: 30px;
+    transition: 0.3s;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    font-style: normal;
+}
+
+.dropdown.active .submenu {
+    display: block;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.menu-navbar .dropbtn,
+.dropbtn {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 64px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    box-shadow: 0 4px 14px 0 rgba(31, 38, 135, 0.2);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.menu-navbar .dropbtn ion-icon,
+.dropbtn ion-icon {
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+/* Efeito ao passar o mouse e enquanto o dropdown estiver aberto */
+.dropbtn:hover,
+.dropdown.active .dropbtn {
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.28);
+    border-radius: 8px;
+    transform: scale(1.05);
+}
+
+/* =====================================================
+   BOTÃO DE FILTROS (hambúrguer) — MOBILE
+   -----------------------------------------------------
+   No menu mobile, os itens ocupam a largura toda do
+   painel arredondado. O botão de filtros, sendo uma
+   caixinha de tamanho fixo, precisa de respiro nas
+   laterais pra não ficar colado/vazando na borda
+   arredondada do painel.
+===================================================== */
+
+@media screen and (max-width: 896px) {
+
+    .menu-navbar .dropbtn,
+    .dropbtn {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 14px 0;
+        border-radius: 20px;
+        justify-content: center;
+    }
+
+}
+
+.submenu li {
+    width: 100%;
+}
+/* ===== EFEITO HOVER NOS LINKS DO SUBMENU ===== */
+.submenu li a {
+    border-radius: 40px;
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        backdrop-filter 0.25s ease,
+        -webkit-backdrop-filter 0.25s ease,
+        transform 0.25s ease;
+}
+
+.submenu li a:hover {
+    background: rgba(39, 39, 39, 0.1);
+    color: #fff;
+    border-radius: 40px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transform: scale(1.03);
+    font-style: normal;
+}
+
+
+/* =====================================================
+   NOVA ESTRUTURA DA NAVBAR
+   -----------------------------------------------------
+   Logo à esquerda, ícone de "Home" (casa) logo ao lado
+   (sempre visível, fora do hambúrguer). Carrinho + botão
+   de Filtros (hambúrguer com borda) agrupados à direita,
+   também sempre visíveis — sem precisar de um segundo
+   hambúrguer só pra abrir esse grupo.
+===================================================== */
+
+.home-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-left: 100px;
+    color: #fff;
+    border-radius: 12px;
+    transition: background 0.3s ease;
+}
+
+.home-link ion-icon {
+    font-size: 26px;
+}
+
+.home-link:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.navbar-direita {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.font-navbar {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.font-navbar:hover {
+    background: rgba(39, 39, 39, 0.1);
+    color: #fff;
+    border-radius: 40px;
+    transition: 0.3s;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    font-style: normal;
+}
+
+img.logo {
+    width: 80px;
+    height: 80px;
+    top: 0px;
+    display: flex;
+    padding: 10px 10px 10px 10px;
+    align-items: center;
+    position: absolute;
+}
+
+/* ===== BOTÃO HAMBÚRGUER (mobile) ===== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/********************************************************** Ícone de carrinho (navbar) *****************************************************************************************************/
+
+.cart-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-count {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: #ff3b30;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    line-height: 1;
+}
+
+.search-container {
+    position: fixed;
+
+    top: 150px;              /* Distância abaixo da navbar */
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: min(650px, calc(100% - 30px));
+    height: 60px;
+
+    padding: 0 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(100px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    z-index: 999; /* Abaixo da navbar, se ela estiver com z-index maior */
+}
+
+.search-container ion-icon {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.85);
+    flex-shrink: 0;
+}
+
+.search-container input {
+    flex: 1;
+    height: 100%;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+}
+
+.search-container input::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/********************************************************** Conteúdo *****************************************************************************************************/
+
+.font-content {
+    font-family: "Inter", sans-serif;
+    text-decoration: none;
+    color: #000;
+    font-size: 25px;
+    padding: 50;
+    font-weight: bold;
+}
+
+.produto {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin: 160px 29px 40px 29px;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+    box-sizing: border-box;
+}
+
+.produto-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 8px;
+}
+
+/* Nome do produto e armazenamento selecionado (ex: "256GB") na página de pagamento */
+.armazenamento-selecionado {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+/********************************************************* button **********************************************************************************************************/
+
+.btn-comprar {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-imagem{
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ gap: 8px;
+ padding: 10px 20px;
+ border: 1px solid #000;
+ background-color: #fff;
+ font-size: 16px;
+
+}
+
+.icone-btn {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.btn-cor{
+    color: #fff;
+    background-color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+
+button {
+    padding: 20px;
+    font-size: 25px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    margin: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+button:hover{
+    background: #000;
+    color: #fff;
+    transition:all 0.3s ease;
+    cursor: pointer;
+}
+
+.storage-btn {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 16px;
+}
+
+.storage-btn.active {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.storage-btn:not(.active):hover {
+  border-color: #111;
+  background: #f0f0f0;
+}
+
+/****************************************** qrcode**************************************************************************************************/
+
+.qrcode-escondido {
+    display: none;
+}
+
+.mostrar {
+    display: block;
+}
+
+/************************************** dados bancários ************************************************************************************************/
+.input-topzera {
+    display: none;
+    
+}
+
+.mostrar {
+    display: block;
+}
+
+input{
+    border-radius: 50px;
+    padding: 20px;
+    font-family:"Inter", sans-serif;
+    color: #000;
+    margin: 8px;
+    width: 80%;
+    max-width: 300px;
+    outline: none;
+    font-size: 14px;
+    text-transform: uppercase;
+
+}
+
+
+
+.btn-imagem{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px auto;
+    justify-content: center;
+    width: 100%;
+    max-width: 350px;
+    font-size: 16px;
+
+}
+
+.btn-imagem span, .btn-imagem p, .btn-imagem img {
+    margin: 0;
+    padding: 0;
+}
+/********************************************************** Input e caixa de texto *****************************************************************************************************/
+
+
+/* Fundo branco da foto "some" contra o fundo claro da página */
+.celular {
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+/********************************************************** Rodapé *****************************************************************************************************/
+.footer {
+  width: 100%;
+  padding: 30px 60px;
+  box-sizing: border-box;
+  background: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  order: 2;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+}
+
+footer img {
+  width: 110px;
+  height: 110px;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+footer img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+footer > div:has(img) {
+  order: 3;
+}
+
+#social-media {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  order: 1;
+}
+
+#social-media ion-icon {
+  color: #fff;
+  font-size: 24px;
+}
+
+/***************************************************************************************************************** Resolução e midias fisicas *************************************************************************/
+@media (max-width: 896px) {
+.navbar {
+    width: 100%;
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(100px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    display: flex;
+    position: fixed;
+    top: 20px;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100px;
+    padding: 0px 20px;
+    height: 100px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+}
+
+.menu-navbar {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+li {
+    float: left;
+}
+
+.menu-navbar, .submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+    display: flex;
+}
+
+.menu-navbar > li {
+    position: relative;
+}
+
+.menu-navbar a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #ffff;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    margin: 25px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(100px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.submenu:hover {
+    background: rgba(39, 39, 39, 0.1);
+    color: #fff;
+    border-radius: 50px;
+    transition: 0.3s;
+    position: fixed;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    font-style: normal;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.dropbtn {
+    font-weight: bold;
+}
+
+/* No mobile, o botão de filtros (que no desktop é uma
+   caixinha fixa 64x40 com vidro/borda) precisa se comportar
+   como os outros itens do menu: ocupar a largura toda e
+   ficar empilhado dentro do menu hambúrguer, em vez de manter
+   o tamanho fixo do desktop flutuando ali dentro. */
+.menu-navbar .dropdown .dropbtn {
+    width: 100%;
+    height: auto;
+    padding: 14px 0;
+    border-radius: 20px;
+    justify-content: center;
+}
+
+.dropbtn:hover {
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.28);
+    border-radius: 8px;
+    transform: scale(1.05);
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.font-navbar {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.font-navbar:hover {
+    background: rgba(39, 39, 39, 0.1);
+    color: #fff;
+    border-radius: 50px;
+    transition: 0.3s;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    font-style: normal;
+}
+
+img.logo {
+    width: 80px;
+    height: 80px;
+    top: 0px;
+    display: flex;
+    padding: 10px 10px 10px 10px;
+    align-items: center;
+    position: absolute;
+}
+
+/* ===== BOTÃO HAMBÚRGUER (mobile) ===== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    margin: 0px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.btn-imagem{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px auto;
+    justify-content: center;
+    width: 100%;
+    max-width: 350px;
+
+}
+
+.btn-imagem span, .btn-imagem p, .btn-imagem img {
+    margin: 0;
+    padding: 0;
+}
+}
+
+@media (max-width: 768px) {
+.navbar {
+    width: 100%;
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(100px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    display: flex;
+    position: fixed;
+    top: 20px;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100px;
+    padding: 0px 20px;
+    height: 100px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+}
+
+.menu-navbar {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+li {
+    float: left;
+}
+
+.menu-navbar, .submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+    display: flex;
+}
+
+.menu-navbar > li {
+    position: relative;
+}
+
+.menu-navbar a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #ffff;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    margin: 25px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(100px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.submenu:hover {
+    background: rgba(39, 39, 39, 0.1);
+    color: #fff;
+    border-radius: 50px;
+    transition: 0.3s;
+    position: fixed;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    font-style: normal;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.dropbtn {
+    font-weight: bold;
+}
+
+.dropbtn:hover {
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.28);
+    border-radius: 8px;
+    transform: scale(1.05);
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.font-navbar {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.font-navbar:hover {
+    background: rgba(39, 39, 39, 0.1);
+    color: #fff;
+    border-radius: 50px;
+    transition: 0.3s;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    font-style: normal;
+}
+
+img.logo {
+    width: 80px;
+    height: 80px;
+    top: 0px;
+    display: flex;
+    padding: 10px 10px 10px 10px;
+    align-items: center;
+    position: absolute;
+}
+
+/* ===== BOTÃO HAMBÚRGUER (mobile) ===== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+.produto-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    width: 100%;
+}
+
+}
+/* ===== RESPONSIVO: TABLET E CELULAR — ATÉ 896px ===== */
+@media (max-width: 896px) {
+
+    .navbar {
+        position: fixed;
+        top: 20px;
+        left: 15px;
+        right: 15px;
+        background: rgba(17, 24, 39, 0.75);
+
+        width: auto;
+        height: 80px;
+        min-height: 80px;
+
+        margin: 0;
+        padding: 0 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 50px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+        box-sizing: border-box;
+        z-index: 1000;
+    }
+
+    /* Logo na lateral esquerda */
+    .logo-navbar {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        z-index: 1002;
+    }
+
+    img.logo {
+        width: 65px;
+        height: 65px;
+        padding: 5px;
+        object-fit: contain;
+    }
+
+    /* Hambúrguer perfeitamente centralizado */
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 45px;
+        height: 45px;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1003;
+    }
+
+    .menu-toggle span {
+        width: 28px;
+        height: 3px;
+        background: #fff;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
+    .menu-navbar {
+        display: none;
+        flex-direction: column;
+
+        position: absolute;
+        top: 90px;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        margin: 8px 0 0;
+        padding: 10px 0;
+        gap: 0;
+
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+
+        box-sizing: border-box;
+    }
+
+    .menu-navbar.active {
+        display: flex;
+    }
+
+    .menu-navbar > li {
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+
+    .font-navbar,
+    .menu-navbar a {
+        display: block;
+        width: 100%;
+        padding: 14px 0;
+        font-size: 20px;
+        box-sizing: border-box;
+    }
+
+    .submenu {
+        position: static;
+        display: none;
+
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .dropdown.active .submenu {
+        display: block;
+    }
+
+    /* Desativa o hover do desktop no celular */
+    .dropdown:hover .submenu {
+        display: none;
+    }
+
+    .dropdown.active:hover .submenu {
+        display: block;
+    }
+}
+
+
+
+/* ===== TABLETS E IPADS ===== */
+@media screen and (max-width: 896px) {
+
+    .navbar {
+        top: 16px;
+        left: 18px;
+        right: 18px;
+        width: auto;
+        height: 84px;
+        min-height: 84px;
+        margin: 0;
+        padding: 0 22px;
+          background: rgba(17, 24, 39, 0.75);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 50px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+        box-sizing: border-box;
+        z-index: 1000;
+    }
+
+    .logo-navbar {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+        padding: 0;
+        z-index: 1002;
+    }
+
+    img.logo {
+        position: static;
+        display: block;
+        width: 68px;
+        height: 68px;
+        padding: 5px;
+        object-fit: contain;
+        box-sizing: border-box;
+    }
+
+    .menu-toggle {
+        position: absolute;
+        display: flex;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 46px;
+        height: 46px;
+        padding: 0;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1003;
+    }
+
+    .menu-navbar {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+        gap: 0;
+
+        flex-direction: column;
+
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 24px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+
+        box-sizing: border-box;
+    }
+
+    .menu-navbar.active {
+        display: flex;
+    }
+
+    .menu-navbar > li {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-navbar a,
+    .font-navbar {
+        display: block;
+        width: 100%;
+        padding: 14px 8px;
+        font-size: 20px;
+        box-sizing: border-box;
+    }
+
+    .submenu {
+        position: static;
+        display: none;
+        width: 100%;
+        margin: 0;
+        padding: 8px 0;
+
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .dropdown:hover .submenu {
+        display: none;
+    }
+
+    .dropdown.active .submenu,
+    .dropdown.active:hover .submenu {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+/* ===== IPADS MENORES E CELULARES GRANDES ===== */
+@media screen and (max-width: 600px) {
+    .navbar {
+        top: 14px;
+        left: 14px;
+        right: 14px;
+        height: 78px;
+        min-height: 78px;
+        padding: 0 18px;
+          background: rgba(17, 24, 39, 0.75);
+    }
+
+    .logo-navbar {
+        left: 16px;
+    }
+
+    img.logo {
+        width: 62px;
+        height: 62px;
+    }
+
+    .menu-toggle {
+        width: 44px;
+        height: 44px;
+    }
+
+    .menu-toggle span {
+        width: 27px;
+        height: 3px;
+    }
+
+    .menu-navbar {
+        top: calc(100% + 8px);
+    }
+}
+
+
+/* ===== IPHONES PRO MAX E CELULARES DE 6,4" ===== */
+@media screen and (max-width: 430px) {
+    .navbar {
+        top: 12px;
+        left: 10px;
+        right: 10px;
+        height: 74px;
+        min-height: 74px;
+        padding: 0 14px;
+          background: rgba(17, 24, 39, 0.75);
+    }
+
+    .logo-navbar {
+        left: 13px;
+    }
+
+    img.logo {
+        width: 58px;
+        height: 58px;
+        padding: 4px;
+    }
+
+    .menu-toggle {
+        width: 42px;
+        height: 42px;
+    }
+
+    .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        gap: 5px;
+    }
+
+    .menu-navbar a,
+    .font-navbar {
+        padding: 13px 6px;
+        font-size: 18px;
+    }
+}
+
+
+/* ===== IPHONES NORMAIS E CELULARES MÉDIOS ===== */
+@media screen and (max-width: 390px) {
+    .navbar {
+        left: 9px;
+        right: 9px;
+        height: 70px;
+        min-height: 70px;
+          background: rgba(17, 24, 39, 0.75);
+    }
+
+    .logo-navbar {
+        left: 11px;
+    }
+
+    img.logo {
+        width: 54px;
+        height: 54px;
+    }
+
+    .menu-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .menu-toggle span {
+        width: 24px;
+    }
+
+    .menu-navbar {
+        border-radius: 20px;
+    }
+}
+
+
+/* ===== CELULARES DE 5,2" E TELAS ESTREITAS ===== */
+@media screen and (max-width: 414px) {
+    .navbar {
+        top: 10px;
+        left: 7px;
+        right: 7px;
+        height: 66px;
+        min-height: 66px;
+        padding: 0 10px;
+        background: rgba(17, 24, 39, 0.75);
+    }
+
+    .logo-navbar {
+        left: 9px;
+    }
+
+    img.logo {
+        width: 50px;
+        height: 50px;
+        padding: 3px;
+    }
+
+    .menu-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .menu-toggle span {
+        width: 22px;
+        height: 2.5px;
+        gap: 5px;
+    }
+
+    .menu-navbar a,
+    .font-navbar {
+        padding: 12px 5px;
+        font-size: 17px;
+    }
+}
+
+/* ===== TABLETS E IPADS — ATÉ 896px (botões, imagens e textos centralizados) ===== */
+@media screen and (max-width: 896px) {
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        height: auto;
+    }
+
+ 
+    .card-celular {
+        width: min(300px, 100%);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .produto {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .produto-info {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .alinha-texto{
+        text-align: center;
+        padding: 20px;
+    }
+
+    h1 {
+       text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+        width: 100%;
+    }
+
+    .price {
+        text-align: center;
+        width: 100%;
+    }
+
+    p {
+        font-size: 19px;
+        text-align: center;
+    }
+
+    .btn-imagem {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .produto-info > div:not(#campoDadosbancarios) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    #campoDadosbancarios.mostrar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    input {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn-comprar {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .btn-cor {
+        width: 90%;
+        max-width: 350px;
+    }
+
+      .footer {
+        padding: 28px 35px;
+        gap: 25px;
+    }
+
+    footer img {
+        width: 95px;
+        height: 95px;
+    }
+
+    #social-media ion-icon {
+        font-size: 27px;
+    }
+}
+
+/* ===== RESPONSIVO DO CONTEÚDO — cascata fina igual ao resto do site ===== */
+
+@media screen and (max-width: 430px) {
+    .produto {
+        padding-top: 130px;
+    }
+
+    h1 {
+        font-size: 22px;
+        padding: 12px;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    input {
+        padding: 16px;
+        font-size: 13px;
+    }
+
+    .btn-imagem {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .btn-cor {
+        font-size: 15px;
+        padding: 8px 16px;
+    }
+
+    .celular {
+        width: 240px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .produto {
+        padding-top: 120px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .price {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    input {
+        padding: 14px;
+        max-width: 260px;
+    }
+
+    .celular {
+        width: 210px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .produto {
+        padding-top: 110px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+/* =====================================================
+   REESTRUTURAÇÃO DA NAVBAR MOBILE
+   -----------------------------------------------------
+   - Ícone de casa fixo na esquerda (fora do menu suspenso)
+   - Hambúrguer (com a borda/vidro) fica na direita
+   - Logo passa a morar dentro do menu suspenso
+   - Botão de filtros dentro do menu volta a ser simples,
+     sem a caixinha com borda (isso agora é exclusividade
+     do hambúrguer principal)
+===================================================== */
+
+/* Ícone de casa e itens exclusivos do menu mobile ficam
+   escondidos no desktop por padrão */
+.home-icon-navbar {
+    display: none;
+}
+
+.logo-mobile-item {
+    display: none;
+}
+
+.dropbtn-texto {
+    display: none;
+}
+
+@media screen and (max-width: 896px) {
+
+    /* Ícone de casa aparece fixo na esquerda */
+    /* Casinha (home) fica na DIREITA */
+    .home-icon-navbar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        left: auto;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        width: 46px;
+        height: 46px;
+
+        color: #fff;
+        font-size: 26px;
+
+        z-index: 1002;
+    }
+
+    /* A logo normal (do topo da navbar) some no mobile —
+       ela passa a aparecer só dentro do menu suspenso.
+       !important garante que nenhuma outra regra de
+       breakpoint mais estreito (600/430/390/360) volte
+       a exibir ela sem querer. */
+    .logo-navbar {
+        display: none !important;
+    }
+
+    /* Hambúrguer (com a borda/vidro) fica na ESQUERDA */
+    .menu-toggle {
+        left: 14px;
+        right: auto;
+        transform: translateY(-50%);
+
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 10px;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 4px 14px 0 rgba(31, 38, 135, 0.2);
+    }
+
+    .menu-toggle.active {
+        background: rgba(255, 255, 255, 0.22);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.28);
+    }
+
+    /* "HOME" em texto some do menu suspenso — o ícone de
+       casa já cobre esse papel fora do menu */
+    .menu-navbar > li > a.font-navbar {
+        display: none;
+    }
+
+    /* Logo aparece como primeiro item do menu suspenso */
+    .logo-mobile-item {
+        display: flex;
+        justify-content: center;
+        padding: 18px 0 10px 0;
+    }
+
+    .logo-mobile-item .logo-mobile {
+        /* img.logo (a classe base da logo) usa position:absolute,
+           o que faria essa logo "vazar" pra fora do menu suspenso
+           (relativa à navbar, que é fixed). Resetamos aqui com
+           especificidade maior pra ela ficar quietinha na lista. */
+        position: static !important;
+        top: auto !important;
+        display: block !important;
+
+        width: 56px;
+        height: 56px;
+        padding: 0 !important;
+
+        object-fit: contain;
+    }
+
+    /* Botão de filtros dentro do menu volta a ser "normal",
+       sem a caixinha com borda/vidro */
+    .menu-navbar .dropdown .dropbtn {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 14px 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        justify-content: center;
+    }
+
+    .dropbtn-texto {
+        display: inline;
+        margin-left: 8px;
+        font-size: 20px;
+    }
+
+}
+
+/* =====================================================
+   CARRINHO CENTRALIZADO NA NAVBAR (mobile) + FILTROS
+   SEM ÍCONE DE HAMBÚRGUER DENTRO DO MENU
+===================================================== */
+
+/* Escondido no desktop — o carrinho de lá continua sendo
+   o de dentro do menu-navbar, como sempre foi */
+.cart-icon-navbar {
+    display: none;
+}
+
+@media screen and (max-width: 896px) {
+
+    /* Carrinho fica centralizado na navbar principal */
+    .cart-icon-navbar {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        color: #fff;
+        font-size: 26px;
+
+        z-index: 1002;
+    }
+
+    /* O carrinho de dentro do menu suspenso some no mobile —
+       o de cima (centralizado na navbar) já cobre esse papel */
+    .cart-item-desktop {
+        display: none;
+    }
+
+    /* Ícone de hambúrguer some do botão "Filtros" dentro do
+       menu — fica só o texto "Filtros" */
+    .menu-navbar .dropdown .dropbtn ion-icon {
+        display: none;
+    }
+
+}
+
+/* =====================================================
+   MENU MOBILE — TIRA O BOTÃO "FILTROS" E DEIXA AS 3
+   CATEGORIAS DIRETO NA LISTA (Smartphones, Smartwatches,
+   Fones Bluetooth), sem precisar clicar pra abrir
+===================================================== */
+
+@media screen and (max-width: 896px) {
+
+    /* O botão "Filtros" (ícone + texto) some por completo */
+    .menu-navbar .dropdown .dropbtn {
+        display: none;
+    }
+
+    /* O submenu deixa de ser uma gaveta escondida/expansível
+       e passa a aparecer sempre, como parte normal da lista */
+   .menu-navbar .dropdown .submenu {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    max-height: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(100px);
+    box-shadow: none;
+    transition: none;
+}
+
+    /* "Ver todos" some — fica só as 3 categorias pedidas */
+    .menu-navbar .dropdown .submenu li:last-child {
+        display: none;
+    }
+
+}
+
+/* =====================================================
+   RODAPÉ EMPILHADO NO MOBILE
+   -----------------------------------------------------
+   A logo (footer > div:has(img)) já tem order:3, ou seja,
+   vem depois dos links de navegação (.footer-content,
+   order:2). Bastava trocar o .footer de "row" para "column"
+   e centralizar tudo pra logo ficar centralizada logo
+   abaixo da lista de links (onde está "Privacidade").
+===================================================== */
+
+@media screen and (max-width: 896px) {
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+
+    footer > div:has(img) {
+        margin: 0 auto;
+    }
+
+}

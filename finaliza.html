@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="icon" href="./Assets/buy2buy-icone-192.png" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="./Assets/buy2buy-icone.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="./Assets/buy2buy-icone-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./Assets/buy2buy-icone-16.png">
+    <link rel="apple-touch-icon" href="./Assets/buy2buy-icone-180.png">
+    <link rel="alternate icon" type="image/png" href="./Assets/buy2buy-icone-32.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buy 2 Buy | Pagamento aprovado</title>
+
+    <link rel="stylesheet" href="./finaliza.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lilita+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!--------------------------------------------------- Navbar ----------------------------------------------------------->
+<nav class="navbar">
+    <a href="./pagina-de-produtos.html" class="home-icon-navbar" aria-label="Página inicial">
+        <ion-icon name="home-outline"></ion-icon>
+    </a>
+
+    <a href="./carrinho.html" class="cart-link cart-icon-navbar" aria-label="Carrinho">
+        <ion-icon name="cart-outline"></ion-icon>
+        <span class="cart-count">0</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+    </button>
+
+    <a href="./index.html" class="logo-navbar">
+        <img src="./Assets/buy2buy-icone.svg" alt="Logo da Buy2Buy" class="logo">
+    </a>
+
+    <ul class="menu-navbar" id="menuNavbar">
+        <li><a class="font-navbar" href="./pagina-de-produtos.html">HOME</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn" aria-label="Filtros">
+                <ion-icon name="menu-outline"></ion-icon>
+            </a>
+            <ul class="submenu">
+                <li><a href="./pagina-de-produtos.html?categoria=smartwatches" class="filtro-link">Smartwatches</a></li>
+                <li><a href="./pagina-de-produtos.html?categoria=smartphones" class="filtro-link">Smartphones</a></li>
+                <li><a href="./pagina-de-produtos.html?categoria=fone" class="filtro-link">Fones Bluetooth</a></li>
+                <li><a href="./pagina-de-produtos.html?categoria=todos" class="filtro-link">Ver todos</a></li>
+            </ul>
+        </li>
+        <li class="cart-item-desktop">
+            <a href="./carrinho.html" class="cart-link">
+                <ion-icon name="cart-outline"></ion-icon>
+                <span class="cart-count">0</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!------------------------------------------------ Confirmação (dinâmico) ------------------------------------------------>
+
+<div class="produto">
+    <div class="card-celular">
+        <img id="produto-imagem" src="" alt="" class="celular">
+    </div>
+
+    <div class="produto-info">
+
+        <h2 id="produto-nome"></h2>
+        <p id="produto-armazenamento" class="armazenamento-selecionado"></p>
+        <h3>R$ <span id="preco"></span></h3>
+
+        <div class="cor-icone">
+            <ion-icon name="checkmark-done-circle-outline"></ion-icon>
+            <h1>Compra realizada com sucesso</h1>
+        </div>
+
+        <div class="status-pedido">
+
+            <div class="status-etapa concluida">
+                <div class="status-icone">
+                    <ion-icon name="receipt-outline"></ion-icon>
+                </div>
+                <span class="status-texto">Pedido realizado</span>
+            </div>
+
+            <div class="status-linha concluida"></div>
+
+            <div class="status-etapa concluida">
+                <div class="status-icone">
+                    <ion-icon name="card-outline"></ion-icon>
+                </div>
+                <span class="status-texto">Pagamento aprovado</span>
+            </div>
+
+            <div class="status-linha"></div>
+
+            <div class="status-etapa">
+                <div class="status-icone">
+                    <ion-icon name="cube-outline"></ion-icon>
+                </div>
+                <span class="status-texto">Pedido enviado</span>
+            </div>
+
+            <div class="status-linha"></div>
+
+            <div class="status-etapa">
+                <div class="status-icone">
+                    <ion-icon name="home-outline"></ion-icon>
+                </div>
+                <span class="status-texto">Pedido entregue</span>
+            </div>
+
+        </div>
+
+        <a href="./pagina-de-produtos.html" class="btn-comprar">
+            <button class="btn-cor">
+                <ion-icon class="icon" name="home-outline"></ion-icon>
+                Voltar para a página inicial
+            </button>
+        </a>
+
+    </div>
+</div>
+
+<!---------------------------------------------------------- Rodapé ---------------------------------------------------------->
+<footer class="footer">
+    <div class="footer-content">
+        <ul class="footer-links">
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Privacidade</a></li>
+        </ul>
+    </div>
+    <div>
+        <img src="./Assets/buy2buy-icone.svg" alt="Logo da Buy2Buy no rodapé">
+    </div>
+    <div id="social-media">
+        <a href="https://www.instagram.com/ocaiqueecandidoo/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="https://www.linkedin.com/in/caique-candido-a59b031ba/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+        <a href="https://github.com/caiquecandido99" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+
+<script src="./navbar responsiva.js"></script>
+
+<!-- IMPORTANTE: produtos-data.js precisa vir ANTES de finaliza.js -->
+<script src="./produtos-data.js"></script>
+<script src="./finaliza.js"></script>
+<script src="./filtro.js"></script>
+
+ <script src="./cart.js"></script>
+
+</body>
+</html>
