@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <img src="assets/banner buy2buy.png" alt="Preview do Buy2Buy" width="100%">
+  <img src="./assets/banner buy2buy.png" alt="Preview do Buy2Buy" width="100%">
 </p>
 
 Site de e-commerce de celulares desenvolvido com **HTML, CSS, JavaScript e Python**.
