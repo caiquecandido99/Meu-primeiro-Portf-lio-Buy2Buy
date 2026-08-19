@@ -473,7 +473,7 @@ img.logo {
  justify-content: center;
  gap: 8px;
  padding: 10px 20px;
- border: 1px solid #000;
+ border: 1px solid #d0d0d0;
  background-color: #fff;
  font-size: 16px;
 
@@ -492,6 +492,9 @@ img.logo {
     font-weight: bold;
     padding: 10px 20px;
     margin: 0;
+    width: 350px;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 
@@ -576,8 +579,9 @@ input{
   gap: 10px;
   margin: 16px auto;
     justify-content: center;
-    width: 100%;
-    max-width: 350px;
+    width: 350px;
+    max-width: 100%;
+    box-sizing: border-box;
     font-size: 16px;
 
 }
@@ -865,8 +869,9 @@ img.logo {
   gap: 10px;
   margin: 16px auto;
     justify-content: center;
-    width: 100%;
-    max-width: 350px;
+    width: 350px;
+    max-width: 100%;
+    box-sizing: border-box;
 
 }
 
@@ -1600,8 +1605,8 @@ img.logo {
     }
 
     .btn-cor {
-        width: 90%;
-        max-width: 350px;
+        width: 350px;
+        max-width: 100%;
     }
 
       .footer {

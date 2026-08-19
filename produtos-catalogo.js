@@ -644,6 +644,91 @@ function formatarPreco(preco) {
 
 
 // ============================================================
+// INFORMAÇÕES ESTILO AMAZON (opções, avaliação, parcelamento,
+// entrega e estoque) — geradas de forma determinística a
+// partir do id do produto, pra não ficar mudando a cada
+// renderização.
+// ============================================================
+
+function hashCodeIntoNumero(texto) {
+
+    let hash = 0;
+
+    for (let i = 0; i < texto.length; i++) {
+        hash = (hash << 5) - hash + texto.charCodeAt(i);
+        hash |= 0;
+    }
+
+    return Math.abs(hash);
+
+}
+
+
+function criarEstrelasHTML(rating) {
+
+    const cheias = Math.round(rating);
+
+    let html = "";
+
+    for (let i = 1; i <= 5; i++) {
+
+        html += i <= cheias
+            ? `<ion-icon name="star"></ion-icon>`
+            : `<ion-icon name="star-outline"></ion-icon>`;
+
+    }
+
+    return html;
+
+}
+
+
+function gerarInfoAmazon(produto) {
+
+    const seed = hashCodeIntoNumero(produto.id);
+
+    // Opções (tamanhos para telefones/relógios, cores para fones)
+    const qtdOpcoes = 2 + (seed % 3); // 2 a 4
+    const tipoOpcao = produto.categoria === "fone" ? "cores" : "tamanhos";
+
+    // Avaliação (4,3 a 4,9) e número de avaliações
+    const rating = 4.3 + ((seed % 7) / 10);
+    const numAvaliacoes = 50 + (seed % 1950);
+
+    // Estoque (1 a 15 unidades)
+    const estoque = 1 + (seed % 15);
+
+    // Entrega grátis: hoje + 2 a 5 dias úteis
+    const diasEntrega = 2 + (seed % 4);
+    const dataEntrega = new Date();
+    dataEntrega.setDate(dataEntrega.getDate() + diasEntrega);
+
+    const dataEntregaTexto = dataEntrega.toLocaleDateString(
+        "pt-BR",
+        {
+            weekday: "short",
+            day: "numeric",
+            month: "short"
+        }
+    );
+
+    return {
+        opcoesTexto: `${qtdOpcoes} ${tipoOpcao}`,
+        rating: rating,
+        ratingTexto: rating.toFixed(1).replace(".", ","),
+        numAvaliacoes: numAvaliacoes,
+        estoqueTexto: estoque === 1
+            ? "Somente 1 em estoque."
+            : `Somente ${estoque} em estoque.`,
+        dataEntregaTexto: dataEntregaTexto,
+        parcelaTexto: formatarPreco(produto.preco / 12)
+    };
+
+}
+
+
+
+// ============================================================
 // CRIAR UM CARD DE PRODUTO
 // ============================================================
 
@@ -656,6 +741,9 @@ function criarCardProduto(produto) {
 
     card.dataset.categoria =
         produto.categoria;
+
+    const infoAmazon =
+        gerarInfoAmazon(produto);
 
     card.innerHTML = `
 
@@ -678,11 +766,56 @@ function criarCardProduto(produto) {
         </h1>
 
 
-        <p>
-            ${formatarPreco(produto.preco)}
-        </p>
+        <div class="card-info-amazon">
+
+            <p class="opcoes-info">
+                Opções: <strong>${infoAmazon.opcoesTexto}</strong>
+            </p>
+
+            <p class="rating-info">
+                <span class="estrelas">${criarEstrelasHTML(infoAmazon.rating)}</span>
+                ${infoAmazon.ratingTexto} de 5 estrelas
+                <span class="rating-count">(${infoAmazon.numAvaliacoes})</span>
+            </p>
+
+            <p class="preco-label">
+                Preço, página do produto
+            </p>
+
+            <p class="preco-principal">
+                ${formatarPreco(produto.preco)}
+            </p>
+
+            <p class="parcelamento-info">
+                em até 12x de ${infoAmazon.parcelaTexto} sem juros
+            </p>
+
+            <p class="entrega-info">
+                Entrega <strong>GRÁTIS</strong>: ${infoAmazon.dataEntregaTexto}
+            </p>
+
+            <p class="estoque-info">
+                ${infoAmazon.estoqueTexto}
+            </p>
+
+        </div>
 
     `;
+
+
+    // Botão "Comprar" — leva direto para a página do produto,
+    // onde o cliente escolhe as opções (armazenamento/cor) antes
+    // de seguir para o pagamento.
+
+    const btnComprar =
+        document.createElement("a");
+
+    btnComprar.href = `./produto.html?id=${produto.id}`;
+    btnComprar.classList.add("btn-comprar-card");
+    btnComprar.innerHTML =
+        `<ion-icon name="flash-outline"></ion-icon> Comprar`;
+
+    card.appendChild(btnComprar);
 
 
     // Botão "Adicionar ao carrinho" — usa as funções globais
@@ -986,6 +1119,97 @@ function injetarEstiloCarrossel() {
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
 
             text-align: center;
+        }
+
+
+        /* =====================================================
+           DESCRIÇÃO ESTILO AMAZON
+           -----------------------------------------------------
+           Bloco com opções, avaliação, preço, parcelamento,
+           entrega e estoque — fica entre o nome do produto e
+           os botões "Comprar" / "Adicionar ao carrinho".
+        ===================================================== */
+
+        .card-info-amazon {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+            margin: 4px 0 10px 0;
+        }
+
+        .card-info-amazon p {
+            display: block;
+            padding: 0;
+            margin: 2px 0;
+            font-size: 13px;
+            line-height: 1.4;
+            text-align: left;
+            color: #565959;
+        }
+
+        .card-info-amazon .rating-info {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .card-info-amazon .estrelas {
+            display: inline-flex;
+            color: #ffa41c;
+            font-size: 14px;
+        }
+
+        .card-info-amazon .rating-count {
+            color: #007185;
+        }
+
+        .card-info-amazon .preco-label {
+            margin-top: 6px;
+            font-size: 12px;
+        }
+
+        .card-info-amazon .preco-principal {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f1111;
+        }
+
+        .card-info-amazon .entrega-info strong {
+            color: #007600;
+        }
+
+
+        /* =====================================================
+           BOTÃO "COMPRAR"
+           -----------------------------------------------------
+           Fica acima do "Adicionar ao carrinho", com destaque
+           visual mais forte (preenchido em preto).
+        ===================================================== */
+
+        .btn-comprar-card {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 6px;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 999px;
+            background: #111;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-comprar-card:hover {
+            background: #333;
+            transform: scale(1.02);
         }
 
 
