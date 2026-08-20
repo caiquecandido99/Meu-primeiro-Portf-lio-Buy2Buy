@@ -41,17 +41,16 @@
         <li class="logo-mobile-item">
             <img src="./Assets/buy2buy-icone.svg" alt="Logo da Buy2Buy" class="logo logo-mobile">
         </li>
-        <li><a class="font-navbar" href="./pagina-de-produtos.html">HOME</a></li>
+        <li><a class="font-navbar" href="./pagina-de-produtos.html" aria-label="Página inicial"><ion-icon name="home-outline"></ion-icon></a></li>
         <li class="dropdown">
             <a href="#" class="dropbtn" aria-label="Filtros">
-                <ion-icon name="menu-outline"></ion-icon>
+                <span class="dropbtn-hamburguer"><span></span><span></span><span></span></span>
                 <span class="dropbtn-texto">Filtros</span>
             </a>
             <ul class="submenu">
-                <li><a href="./pagina-de-produtos.html?categoria=smartwatches" class="filtro-link">Smartwatches</a></li>
-                <li><a href="./pagina-de-produtos.html?categoria=smartphones" class="filtro-link">Smartphones</a></li>
-                <li><a href="./pagina-de-produtos.html?categoria=fone" class="filtro-link">Fones Bluetooth</a></li>
-                <li><a href="./pagina-de-produtos.html?categoria=todos" class="filtro-link">Ver todos</a></li>
+                <li><a href="./pagina-de-produtos.html?categoria=smartwatches" class="filtro-link"><ion-icon name="watch-outline"></ion-icon> Smartwatches</a></li>
+                <li><a href="./pagina-de-produtos.html?categoria=smartphones" class="filtro-link"><ion-icon name="phone-portrait-outline"></ion-icon> Smartphones</a></li>
+                <li><a href="./pagina-de-produtos.html?categoria=fone" class="filtro-link"><ion-icon name="headset-outline"></ion-icon> Fones Bluetooth</a></li>
             </ul>
         </li>
         <li class="cart-item-desktop">
@@ -77,53 +76,60 @@
         </div>
 
         <div class="produto-info">
-            <h2 class="price">R$ <span id="preco"></span></h2>
 
-            <div class="opcao-bloco">
-                <span class="opcao-titulo">Armazenamento</span>
-                <div class="storage-options" id="storage-options">
-                    <!-- botões de armazenamento inseridos pelo produto.js -->
+            <!-- Coluna de compra: preço, opções e botões, agrupados num
+                 wrapper próprio. Isso separa fisicamente esse bloco do
+                 "Sobre o produto" no DOM, permitindo usar flexbox com
+                 colunas de altura independente (sem o problema de linhas
+                 de grid compartilhadas inflando o espaçamento). -->
+            <div class="coluna-compra">
+
+                <h2 class="price">R$ <span id="preco"></span></h2>
+
+                <div class="opcao-bloco">
+                    <span class="opcao-titulo">Armazenamento</span>
+                    <div class="storage-options" id="storage-options">
+                        <!-- botões de armazenamento inseridos pelo produto.js -->
+                    </div>
                 </div>
-            </div>
 
-            <div class="opcao-bloco">
-                <span class="opcao-titulo">Memória RAM</span>
-                <div class="storage-options" id="ram-options">
-                    <!-- botões de RAM inseridos pelo produto.js -->
+                <div class="opcao-bloco">
+                    <span class="opcao-titulo">Memória RAM</span>
+                    <div class="storage-options" id="ram-options">
+                        <!-- botões de RAM inseridos pelo produto.js -->
+                    </div>
                 </div>
-            </div>
 
-            <div class="opcao-bloco" id="pulseira-bloco">
-                <span class="opcao-titulo">Tamanho da pulseira</span>
-                <div class="storage-options" id="pulseira-options">
-                    <!-- botões de pulseira inseridos pelo produto.js -->
+                <div class="opcao-bloco" id="pulseira-bloco">
+                    <span class="opcao-titulo">Tamanho da pulseira</span>
+                    <div class="storage-options" id="pulseira-options">
+                        <!-- botões de pulseira inseridos pelo produto.js -->
+                    </div>
                 </div>
-            </div>
 
-            <div class="opcao-bloco" id="cor-bloco">
-                <span class="opcao-titulo">Cor</span>
-                <div class="cor-container">
-                    <button class="cor-celular1"></button>
-                    <button class="cor-celular2"></button>
-                    <button class="cor-celular3"></button>
+                <div class="opcao-bloco" id="cor-bloco">
+                    <span class="opcao-titulo">Cor</span>
+                    <div class="cor-container">
+                        <button class="cor-celular1"></button>
+                        <button class="cor-celular2"></button>
+                        <button class="cor-celular3"></button>
+                    </div>
                 </div>
-            </div>
 
-
-            <div class="acoes-produto">
-                <a href="#" class="btn-comprar">
-                    <button class="buy">
-                        <ion-icon class="icon" name="card-outline"></ion-icon>
-                        Comprar
+                <div class="acoes-produto">
+                    <a href="#" class="btn-comprar">
+                        <button class="buy">
+                            <ion-icon class="icon" name="card-outline"></ion-icon>
+                            Comprar
+                        </button>
+                    </a>
+                    <button class="carrinho" id="btn-adicionar-carrinho" type="button">
+                        <ion-icon class="icon" name="cart-outline"></ion-icon>
+                        Adicionar ao carrinho
                     </button>
-                </a>
-                <button class="carrinho" id="btn-adicionar-carrinho" type="button">
-                    <ion-icon class="icon" name="cart-outline"></ion-icon>
-                    Adicionar ao carrinho
-                </button>
-            </div>
+                </div>
 
-         
+            </div>
 
             <div class="sobre-produto">
                 <h1 class="titulo-explicativo">Sobre o produto</h1>

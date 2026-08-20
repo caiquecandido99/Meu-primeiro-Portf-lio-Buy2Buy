@@ -135,10 +135,11 @@ const catalogoProdutos = [
         linha: "Galaxy S"
     },
 
+
            {
         id: "zfold8ultra",
         nome: "Galaxy Z Fold 8 ultra",
-        preco: 10859.99,
+        preco: 13859.00,
         imagem: "./Assets/Galaxy z fold 8 ultra.jpg",
         categoria: "smartphones",
         marca: "Samsung",
@@ -148,7 +149,7 @@ const catalogoProdutos = [
     {
         id: "zfold8",
         nome: "Galaxy Z Fold 8",
-        preco: 10859.99,
+        preco: 11339.10,
         imagem: "./Assets/Galaxy z fold 8.jpg",
         categoria: "smartphones",
         marca: "Samsung",
@@ -158,7 +159,7 @@ const catalogoProdutos = [
     {
         id: "zflip8",
         nome: "Galaxy Z Flip 8",
-        preco: 10859.99,
+        preco: 8279.10,
         imagem: "./Assets/Galaxy z flip 8.jpg",
         categoria: "smartphones",
         marca: "Samsung",
@@ -167,9 +168,9 @@ const catalogoProdutos = [
     
 
       {
-        id: "zfold 7",
+        id: "zfold7",
         nome: "Galaxy Z Fold 7",
-        preco: 10859.99,
+        preco: 10439.00,
         imagem: "./Assets/Galaxy z fold 7.jpg",
         categoria: "smartphones",
         marca: "Samsung",
@@ -179,7 +180,7 @@ const catalogoProdutos = [
       {
         id: "zflip7",
         nome: "Galaxy Z Flip 7",
-        preco: 10859.99,
+        preco: 6610.00,
         imagem: "./Assets/Galaxy z flip 7.jpg",
         categoria: "smartphones",
         marca: "Samsung",
@@ -189,7 +190,7 @@ const catalogoProdutos = [
           {
         id: "zflipfe",
         nome: "Galaxy Z Flip 7 FE",
-        preco: 10859.99,
+        preco: 4229.00,
         imagem: "./Assets/Galaxy z flip 7 FE.jpg",
         categoria: "smartphones",
         marca: "Samsung",
@@ -197,9 +198,9 @@ const catalogoProdutos = [
     },
 
       {
-        id: "zfold 6",
+        id: "zfold6",
         nome: "Galaxy Z Fold 6",
-        preco: 10859.99,
+        preco: 7499.00,
         imagem: "./Assets/Galaxy z fold 6.jpg",
         categoria: "smartphones",
         marca: "Samsung",
@@ -313,7 +314,7 @@ const catalogoProdutos = [
         {
         id: "iph15pm",
         nome: "Iphone 15 Pro Max",
-        preco: 3499.00,
+        preco: 6856.00,
         imagem: "./Assets/Iphone 15 pro Max.jpg",
         categoria: "smartphones",
         marca: "Apple",
@@ -323,7 +324,7 @@ const catalogoProdutos = [
         {
         id: "iph15p",
         nome: "Iphone 15 Pro",
-        preco: 3499.00,
+        preco: 6300.00,
         imagem: "./Assets/Iphone 15 pro.jpg",
         categoria: "smartphones",
         marca: "Apple",
@@ -341,7 +342,7 @@ const catalogoProdutos = [
      {
         id: "galaxywatchultra2",
         nome: "Galaxy Watch Ultra 2",
-        preco: 8222.00,
+        preco: 4299.00,
         imagem: "./Assets/Galaxy watch ultra 2.jpg",
         categoria: "smartwatches",
         marca: "Samsung",
@@ -351,7 +352,7 @@ const catalogoProdutos = [
     {
         id: "galaxywatch9",
         nome: "Galaxy Watch 9",
-        preco: 8222.00,
+        preco: 2599.00,
         imagem: "./Assets/Galaxy watch 9.jpg",
         categoria: "smartwatches",
         marca: "Samsung",
@@ -361,7 +362,7 @@ const catalogoProdutos = [
     {
         id: "galaxywatch8classic",
         nome: "Galaxy Watch Classic",
-        preco: 8222.00,
+        preco: 2699.00,
         imagem: "./Assets/Galaxy watch 8 classic.jpg",
         categoria: "smartwatches",
         marca: "Samsung",
@@ -371,7 +372,7 @@ const catalogoProdutos = [
     {
         id: "galaxywatch8",
         nome: "Galaxy Watch 8",
-        preco: 8222.00,
+        preco: 2299.00,
         imagem: "./Assets/Galaxy watch 8.jpg",
         categoria: "smartwatches",
         marca: "Samsung",
@@ -381,7 +382,7 @@ const catalogoProdutos = [
     {
         id: "galaxywatchultra",
         nome: "Galaxy Watch Ultra",
-        preco: 8222.00,
+        preco: 3799.00,
         imagem: "./Assets/Galaxy watch ultra.jpg",
         categoria: "smartwatches",
         marca: "Samsung",
@@ -391,7 +392,7 @@ const catalogoProdutos = [
     {
         id: "galaxywatch7",
         nome: "Galaxy Watch 7",
-        preco: 8222.00,
+        preco: 1899.00,
         imagem: "./Assets/Galaxy watch 7.jpg",
         categoria: "smartwatches",
         marca: "Samsung",
@@ -401,7 +402,7 @@ const catalogoProdutos = [
     {
         id: "awatchultra3",
         nome: "Apple Watch Ultra 3",
-        preco: 8222.00,
+        preco: 7400.00,
         imagem: "./Assets/apple watch ultra 3.jpg",
         categoria: "smartwatches",
         marca: "Apple",
@@ -411,7 +412,7 @@ const catalogoProdutos = [
         {
         id: "awatchultra2",
         nome: "Apple Watch Ultra 2",
-        preco: 8222.00,
+        preco: 6799.00,
         imagem: "./Assets/apple watch ultra 2.jpg",
         categoria: "smartwatches",
         marca: "Apple",
@@ -421,7 +422,7 @@ const catalogoProdutos = [
     {
         id: "awatchs11",
         nome: "Apple Watch Series 11",
-        preco: 8222.00,
+        preco: 4599.00,
         imagem: "./Assets/apple watch series 11.jpg",
         categoria: "smartwatches",
         marca: "Apple",
@@ -431,7 +432,7 @@ const catalogoProdutos = [
     {
         id: "awatchs10",
         nome: "Apple Watch Series 10",
-        preco: 8222.00,
+        preco: 3899.00,
         imagem: "./Assets/apple watch series 10.jpg",
         categoria: "smartwatches",
         marca: "Apple",
@@ -441,7 +442,7 @@ const catalogoProdutos = [
         {
         id: "awatchs9",
         nome: "Apple Watch Series 9",
-        preco: 8222.00,
+        preco: 3299.00,
         imagem: "./Assets/apple watch series 9.jpg",
         categoria: "smartwatches",
         marca: "Apple",
@@ -451,7 +452,7 @@ const catalogoProdutos = [
     {
         id: "awatchse3",
         nome: "Apple Watch SE3",
-        preco: 8222.00,
+        preco: 2499.00,
         imagem: "./Assets/apple watch se3.jpg",
         categoria: "smartwatches",
         marca: "Apple",
@@ -467,7 +468,7 @@ const catalogoProdutos = [
        {
         id: "airpods3pro",
         nome: "Airpods 3 pro",
-        preco: 8222.00,
+        preco: 2099.00,
         imagem: "./Assets/airpods pro 3.jpg",
         categoria: "fone",
         marca: "Apple",
@@ -477,7 +478,7 @@ const catalogoProdutos = [
      {
         id: "airpods3",
         nome: "Airpods 3",
-        preco: 8222.00,
+        preco: 1249.00,
         imagem: "./Assets/airpods 3.jpg",
         categoria: "fone",
         marca: "Apple",
@@ -487,17 +488,37 @@ const catalogoProdutos = [
      {
         id: "airpods4",
         nome: "Airpods 4",
-        preco: 8222.00,
+        preco: 1144.00,
         imagem: "./Assets/airpods 4.jpg",
         categoria: "fone",
         marca: "Apple",
         linha: "AirPods"
     },
 
+        {
+        id: "gbuds4pro",
+        nome: "Galaxy Buds 4 pro",
+        preco: 1553.00,
+        imagem: "./Assets/Galaxy buds 4 pro.jpg",
+        categoria: "fone",
+        marca: "Samsung",
+        linha: "Galaxy Buds"
+    },
+
+        {
+        id: "gbuds4",
+        nome: "Galaxy Buds 4",
+        preco: 8222.00,
+        imagem: "./Assets/Galaxy buds 4.jpg",
+        categoria: "fone",
+        marca: "Samsung",
+        linha: "Galaxy Buds"
+    },
+
      {
         id: "gbuds3pro",
         nome: "Galaxy Buds 3 pro",
-        preco: 8222.00,
+        preco: 1299.00,
         imagem: "./Assets/Galaxy buds 3 pro.jpg",
         categoria: "fone",
         marca: "Samsung",

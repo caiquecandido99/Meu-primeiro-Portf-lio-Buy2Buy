@@ -42,17 +42,16 @@
         <li class="logo-mobile-item">
             <img src="./Assets/buy2buy-icone.svg" alt="Logo da Buy2Buy" class="logo logo-mobile">
         </li>
-        <li><a class="font-navbar" href="./pagina-de-produtos.html">HOME</a></li>
+        <li><a class="font-navbar" href="./pagina-de-produtos.html" aria-label="Página inicial"><ion-icon name="home-outline"></ion-icon></a></li>
         <li class="dropdown">
             <a href="#" class="dropbtn" aria-label="Filtros">
-                <ion-icon name="menu-outline"></ion-icon>
+                <span class="dropbtn-hamburguer"><span></span><span></span><span></span></span>
                 <span class="dropbtn-texto">Filtros</span>
             </a>
             <ul class="submenu">
-                <li><a href="./pagina-de-produtos.html?categoria=smartwatches" class="filtro-link">Smartwatches</a></li>
-                <li><a href="./pagina-de-produtos.html?categoria=smartphones" class="filtro-link">Smartphones</a></li>
-                <li><a href="./pagina-de-produtos.html?categoria=fone" class="filtro-link">Fones Bluetooth</a></li>
-                <li><a href="./pagina-de-produtos.html?categoria=todos" class="filtro-link">Ver todos</a></li>
+                <li><a href="./pagina-de-produtos.html?categoria=smartwatches" class="filtro-link"><ion-icon name="watch-outline"></ion-icon> Smartwatches</a></li>
+                <li><a href="./pagina-de-produtos.html?categoria=smartphones" class="filtro-link"><ion-icon name="phone-portrait-outline"></ion-icon> Smartphones</a></li>
+                <li><a href="./pagina-de-produtos.html?categoria=fone" class="filtro-link"><ion-icon name="headset-outline"></ion-icon> Fones Bluetooth</a></li>
             </ul>
         </li>
         <li class="cart-item-desktop">
@@ -74,6 +73,20 @@
     </div>
 
     <p id="carrinho-vazio" class="carrinho-vazio">Seu carrinho está vazio.</p>
+
+    <!-- Resumo: total da compra (soma de todos os itens do carrinho —
+         celular, smartwatch, fone, ou qualquer combinação) + botão que
+         leva pra página de pagamento. Escondido quando o carrinho está
+         vazio, controlado pelo carrinho.js. -->
+    <div id="carrinho-resumo" class="carrinho-resumo">
+        <p class="carrinho-resumo-total">
+            Total (<span id="carrinho-total-itens">0</span> itens):
+            <span id="carrinho-total-valor">R$ 0,00</span>
+        </p>
+        <button id="btn-finalizar-compra" class="btn-finalizar-compra" type="button">
+            Finalizar compra
+        </button>
+    </div>
 </div>
 
 <!---------------------------------------------------------- Rodapé ---------------------------------------------------------->

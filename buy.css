@@ -43,10 +43,8 @@ body{
     /*************************************************************************** Navbar ************************************************************************************/
 .navbar {
     width: 100%;
-    background: rgba(17, 24, 39, 0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(100px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #151821;
+border: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
     display: flex;
     position: fixed;
@@ -105,7 +103,7 @@ li {
 }
 
 .submenu {
-      background: rgba(17, 24, 39, 0.75);
+      background: rgba(21, 24, 33, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(100px);
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -136,12 +134,57 @@ li {
     font-style: normal;
 }
 
-.dropdown.active .submenu {
-    display: block;
+/* =====================================================
+   SUBMENU FULL-WIDTH NO DESKTOP (mesma barra da navbar)
+   -----------------------------------------------------
+   Em vez da caixinha pequena ancorada no botão, o submenu
+   vira uma barra 100% da largura da tela, igual à navbar
+   (mesma posição fixa, mesmo border-radius). Os itens ficam
+   em linha, um ao lado do outro, e ícone+texto não quebram.
+===================================================== */
+
+@media screen and (min-width: 897px) {
+
+    .dropdown.active .submenu {
+        display: flex;
+
+        position: fixed;
+        top: 138px;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+
+        margin: 0 auto;
+        margin-top: 0;
+
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        border-radius: 50px;
+        padding: 10px 20px;
+
+        box-sizing: border-box;
+    }
+
+    .dropdown.active .submenu li {
+        width: auto;
+        flex: 0 0 auto;
+    }
+
+    .submenu li a {
+        white-space: nowrap;
+    }
+
 }
 
-.dropdown:hover .submenu {
-    display: block;
+.dropdown.active .submenu {
+    display: flex;
 }
 
 .menu-navbar .dropbtn,
@@ -159,7 +202,7 @@ li {
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(21, 24, 33, 0.75);
     border-radius: 8px;
     box-shadow: 0 4px 14px 0 rgba(31, 38, 135, 0.2);
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
@@ -176,6 +219,44 @@ li {
     padding: 0;
 }
 
+/* =====================================================
+   HAMBÚRGUER -> X DENTRO DO BOTÃO "FILTROS" (DESKTOP)
+   -----------------------------------------------------
+   Mesma lógica de animação do .menu-toggle (mobile):
+   3 linhas que giram e formam um X. Reaproveita a classe
+   .dropdown.active que já é alternada no clique.
+===================================================== */
+
+.dropbtn-hamburguer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 22px;
+    height: 16px;
+}
+
+.dropbtn-hamburguer span {
+    width: 22px;
+    height: 2.5px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.dropdown.active .dropbtn-hamburguer span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+
+.dropdown.active .dropbtn-hamburguer span:nth-child(2) {
+    opacity: 0;
+}
+
+.dropdown.active .dropbtn-hamburguer span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
 /* Efeito ao passar o mouse e enquanto o dropdown estiver aberto */
 .dropbtn:hover,
 .dropdown.active .dropbtn {
@@ -190,19 +271,13 @@ li {
 
 /* =====================================================
    BOTÃO DE FILTROS (hambúrguer) — MOBILE
-   -----------------------------------------------------
-   No menu mobile, os itens ocupam a largura toda do
-   painel arredondado. O botão de filtros, sendo uma
-   caixinha de tamanho fixo, precisa de respiro nas
-   laterais pra não ficar colado/vazando na borda
-   arredondada do painel.
 ===================================================== */
 
 @media screen and (max-width: 896px) {
 
     .menu-navbar .dropbtn,
     .dropbtn {
-        width: 100%;
+        border: 1px solid rgba(21, 24, 33, 0.75);        width: 100%;
         height: auto;
         margin: 0;
         padding: 14px 0;
@@ -218,12 +293,21 @@ li {
 /* ===== EFEITO HOVER NOS LINKS DO SUBMENU ===== */
 .submenu li a {
     border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     transition:
         background 0.25s ease,
         box-shadow 0.25s ease,
         backdrop-filter 0.25s ease,
         -webkit-backdrop-filter 0.25s ease,
         transform 0.25s ease;
+}
+
+.submenu li a ion-icon {
+    font-size: 20px;
+    flex-shrink: 0;
 }
 
 .submenu li a:hover {
@@ -240,12 +324,6 @@ li {
 
 /* =====================================================
    NOVA ESTRUTURA DA NAVBAR
-   -----------------------------------------------------
-   Logo à esquerda, ícone de "Home" (casa) logo ao lado
-   (sempre visível, fora do hambúrguer). Carrinho + botão
-   de Filtros (hambúrguer com borda) agrupados à direita,
-   também sempre visíveis — sem precisar de um segundo
-   hambúrguer só pra abrir esse grupo.
 ===================================================== */
 
 .home-link {
@@ -315,7 +393,7 @@ img.logo {
     justify-content: center;
     gap: 6px;
     background: none;
-    border: none;
+    border: 1px solid rgba(21, 24, 33, 0.75);
     cursor: pointer;
     z-index: 20;
 }
@@ -381,7 +459,7 @@ img.logo {
     align-items: center;
     gap: 14px;
 
-    background: rgba(17, 24, 39, 0.75);
+    background: rgba(21, 24, 33, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(100px);
 
@@ -443,6 +521,7 @@ img.logo {
     border-radius: 30px;
     box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
     box-sizing: border-box;
+    transition: transform 0.35s ease;
 }
 
 .produto-info {
@@ -453,10 +532,34 @@ img.logo {
     gap: 8px;
 }
 
-/* Nome do produto e armazenamento selecionado (ex: "256GB") na página de pagamento */
+/* ===== TIPOGRAFIA ESTILO AMAZON — nome, specs e preço ===== */
+
+/* Nome do produto: peso normal (não bold pesado), tamanho legível */
+#produto-nome {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.3;
+    padding: 0;
+    margin: 0 0 4px 0;
+}
+
+/* Armazenamento selecionado (specs): compacto, cinza, pouco espaçamento */
 .armazenamento-selecionado {
+    font-weight: 400;
+    font-size: 14px;
+    color: #565959;
+    line-height: 1.3;
+    margin: 0 0 8px 0;
+}
+
+/* Preço: destaque maior e bold */
+.price {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 28px;
+    /* color: #B12704;  -> descomente para o vermelho característico da Amazon */
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+    padding: 0;
 }
 
 
@@ -606,7 +709,7 @@ input{
   width: 100%;
   padding: 30px 60px;
   box-sizing: border-box;
-  background: #000;
+  background: #151821;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -677,10 +780,8 @@ footer > div:has(img) {
 @media (max-width: 896px) {
 .navbar {
     width: 100%;
-    background: rgba(17, 24, 39, 0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(100px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #151821;
+border: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
     display: flex;
     position: fixed;
@@ -739,7 +840,7 @@ li {
     position: absolute;
     top: 100%;
     left: 0;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(21, 24, 33, 0.75);
     margin: 25px;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(100px);
@@ -769,7 +870,7 @@ li {
 }
 
 .dropbtn {
-    font-weight: bold;
+    border: 1px solid rgba(21, 24, 33, 0.75);    font-weight: bold;
 }
 
 /* No mobile, o botão de filtros (que no desktop é uma
@@ -778,7 +879,7 @@ li {
    ficar empilhado dentro do menu hambúrguer, em vez de manter
    o tamanho fixo do desktop flutuando ali dentro. */
 .menu-navbar .dropdown .dropbtn {
-    width: 100%;
+    border: 1px solid rgba(21, 24, 33, 0.75);    width: 100%;
     height: auto;
     padding: 14px 0;
     border-radius: 20px;
@@ -840,7 +941,7 @@ img.logo {
     gap: 6px;
     margin: 0px;
     background: none;
-    border: none;
+    border: 1px solid rgba(21, 24, 33, 0.75);
     cursor: pointer;
     z-index: 20;
 }
@@ -884,10 +985,8 @@ img.logo {
 @media (max-width: 768px) {
 .navbar {
     width: 100%;
-    background: rgba(17, 24, 39, 0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(100px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #151821;
+border: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
     display: flex;
     position: fixed;
@@ -946,7 +1045,7 @@ li {
     position: absolute;
     top: 100%;
     left: 0;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(21, 24, 33, 0.75);
     margin: 25px;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(100px);
@@ -976,7 +1075,7 @@ li {
 }
 
 .dropbtn {
-    font-weight: bold;
+    border: 1px solid rgba(21, 24, 33, 0.75);    font-weight: bold;
 }
 
 .dropbtn:hover {
@@ -1033,7 +1132,7 @@ img.logo {
     justify-content: center;
     gap: 6px;
     background: none;
-    border: none;
+    border: 1px solid rgba(21, 24, 33, 0.75);
     cursor: pointer;
     z-index: 20;
 }
@@ -1075,7 +1174,7 @@ img.logo {
         top: 20px;
         left: 15px;
         right: 15px;
-        background: rgba(17, 24, 39, 0.75);
+        background: #151821;
 
         width: auto;
         height: 80px;
@@ -1088,11 +1187,8 @@ img.logo {
         align-items: center;
         justify-content: space-between;
 
-        background: rgba(0, 0, 0, 0.75);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-
-        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(21, 24, 33, 0.75);
+border: 1px solid rgba(255, 255, 255, 0.25);
         border-radius: 50px;
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 
@@ -1137,7 +1233,7 @@ img.logo {
         gap: 6px;
 
         background: none;
-        border: none;
+        border: 1px solid rgba(21, 24, 33, 0.75);
         cursor: pointer;
         padding: 0;
         z-index: 1003;
@@ -1196,7 +1292,7 @@ img.logo {
     }
 
     .submenu {
-        position: static;
+        background: rgba(21, 24, 33, 0.75);        position: static;
         display: none;
 
         width: 100%;
@@ -1237,17 +1333,14 @@ img.logo {
         min-height: 84px;
         margin: 0;
         padding: 0 22px;
-          background: rgba(17, 24, 39, 0.75);
+          background: #151821;
 
         display: flex;
         align-items: center;
         justify-content: center;
 
-        background: rgba(0, 0, 0, 0.75);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-
-        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(21, 24, 33, 0.75);
+border: 1px solid rgba(255, 255, 255, 0.25);
         border-radius: 50px;
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 
@@ -1292,7 +1385,7 @@ img.logo {
         gap: 6px;
 
         background: none;
-        border: none;
+        border: 1px solid rgba(21, 24, 33, 0.75);
         cursor: pointer;
         z-index: 1003;
     }
@@ -1342,7 +1435,7 @@ img.logo {
     }
 
     .submenu {
-        position: static;
+        background: rgba(21, 24, 33, 0.75);        position: static;
         display: none;
         width: 100%;
         margin: 0;
@@ -1375,7 +1468,7 @@ img.logo {
         height: 78px;
         min-height: 78px;
         padding: 0 18px;
-          background: rgba(17, 24, 39, 0.75);
+          background: #151821;
     }
 
     .logo-navbar {
@@ -1388,7 +1481,7 @@ img.logo {
     }
 
     .menu-toggle {
-        width: 44px;
+        border: 1px solid rgba(21, 24, 33, 0.75);        width: 44px;
         height: 44px;
     }
 
@@ -1412,7 +1505,7 @@ img.logo {
         height: 74px;
         min-height: 74px;
         padding: 0 14px;
-          background: rgba(17, 24, 39, 0.75);
+          background: #151821;
     }
 
     .logo-navbar {
@@ -1426,7 +1519,7 @@ img.logo {
     }
 
     .menu-toggle {
-        width: 42px;
+        border: 1px solid rgba(21, 24, 33, 0.75);        width: 42px;
         height: 42px;
     }
 
@@ -1451,7 +1544,7 @@ img.logo {
         right: 9px;
         height: 70px;
         min-height: 70px;
-          background: rgba(17, 24, 39, 0.75);
+          background: #151821;
     }
 
     .logo-navbar {
@@ -1464,7 +1557,7 @@ img.logo {
     }
 
     .menu-toggle {
-        width: 40px;
+        border: 1px solid rgba(21, 24, 33, 0.75);        width: 40px;
         height: 40px;
     }
 
@@ -1487,7 +1580,7 @@ img.logo {
         height: 66px;
         min-height: 66px;
         padding: 0 10px;
-        background: rgba(17, 24, 39, 0.75);
+        background: #151821;
     }
 
     .logo-navbar {
@@ -1501,7 +1594,7 @@ img.logo {
     }
 
     .menu-toggle {
-        width: 38px;
+        border: 1px solid rgba(21, 24, 33, 0.75);        width: 38px;
         height: 38px;
     }
 
@@ -1610,7 +1703,7 @@ img.logo {
     }
 
       .footer {
-        padding: 28px 35px;
+        background: #151821;        padding: 28px 35px;
         gap: 25px;
     }
 
@@ -1701,17 +1794,8 @@ img.logo {
 
 /* =====================================================
    REESTRUTURAÇÃO DA NAVBAR MOBILE
-   -----------------------------------------------------
-   - Ícone de casa fixo na esquerda (fora do menu suspenso)
-   - Hambúrguer (com a borda/vidro) fica na direita
-   - Logo passa a morar dentro do menu suspenso
-   - Botão de filtros dentro do menu volta a ser simples,
-     sem a caixinha com borda (isso agora é exclusividade
-     do hambúrguer principal)
 ===================================================== */
 
-/* Ícone de casa e itens exclusivos do menu mobile ficam
-   escondidos no desktop por padrão */
 .home-icon-navbar {
     display: none;
 }
@@ -1726,8 +1810,6 @@ img.logo {
 
 @media screen and (max-width: 896px) {
 
-    /* Ícone de casa aparece fixo na esquerda */
-    /* Casinha (home) fica na DIREITA */
     .home-icon-navbar {
         display: flex;
         align-items: center;
@@ -1748,23 +1830,17 @@ img.logo {
         z-index: 1002;
     }
 
-    /* A logo normal (do topo da navbar) some no mobile —
-       ela passa a aparecer só dentro do menu suspenso.
-       !important garante que nenhuma outra regra de
-       breakpoint mais estreito (600/430/390/360) volte
-       a exibir ela sem querer. */
     .logo-navbar {
         display: none !important;
     }
 
-    /* Hambúrguer (com a borda/vidro) fica na ESQUERDA */
     .menu-toggle {
         left: 14px;
         right: auto;
         transform: translateY(-50%);
 
         background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.35);
+        border: 1px solid rgba(21, 24, 33, 0.75);
         border-radius: 10px;
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
@@ -1777,13 +1853,10 @@ img.logo {
         box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.28);
     }
 
-    /* "HOME" em texto some do menu suspenso — o ícone de
-       casa já cobre esse papel fora do menu */
     .menu-navbar > li > a.font-navbar {
         display: none;
     }
 
-    /* Logo aparece como primeiro item do menu suspenso */
     .logo-mobile-item {
         display: flex;
         justify-content: center;
@@ -1791,10 +1864,6 @@ img.logo {
     }
 
     .logo-mobile-item .logo-mobile {
-        /* img.logo (a classe base da logo) usa position:absolute,
-           o que faria essa logo "vazar" pra fora do menu suspenso
-           (relativa à navbar, que é fixed). Resetamos aqui com
-           especificidade maior pra ela ficar quietinha na lista. */
         position: static !important;
         top: auto !important;
         display: block !important;
@@ -1806,15 +1875,13 @@ img.logo {
         object-fit: contain;
     }
 
-    /* Botão de filtros dentro do menu volta a ser "normal",
-       sem a caixinha com borda/vidro */
     .menu-navbar .dropdown .dropbtn {
         width: 100%;
         height: auto;
         margin: 0;
         padding: 14px 0;
         background: transparent;
-        border: none;
+        border: 1px solid rgba(21, 24, 33, 0.75);
         box-shadow: none;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
@@ -1831,18 +1898,14 @@ img.logo {
 
 /* =====================================================
    CARRINHO CENTRALIZADO NA NAVBAR (mobile) + FILTROS
-   SEM ÍCONE DE HAMBÚRGUER DENTRO DO MENU
 ===================================================== */
 
-/* Escondido no desktop — o carrinho de lá continua sendo
-   o de dentro do menu-navbar, como sempre foi */
 .cart-icon-navbar {
     display: none;
 }
 
 @media screen and (max-width: 896px) {
 
-    /* Carrinho fica centralizado na navbar principal */
     .cart-icon-navbar {
         display: inline-flex;
         align-items: center;
@@ -1859,14 +1922,10 @@ img.logo {
         z-index: 1002;
     }
 
-    /* O carrinho de dentro do menu suspenso some no mobile —
-       o de cima (centralizado na navbar) já cobre esse papel */
     .cart-item-desktop {
         display: none;
     }
 
-    /* Ícone de hambúrguer some do botão "Filtros" dentro do
-       menu — fica só o texto "Filtros" */
     .menu-navbar .dropdown .dropbtn ion-icon {
         display: none;
     }
@@ -1874,20 +1933,15 @@ img.logo {
 }
 
 /* =====================================================
-   MENU MOBILE — TIRA O BOTÃO "FILTROS" E DEIXA AS 3
-   CATEGORIAS DIRETO NA LISTA (Smartphones, Smartwatches,
-   Fones Bluetooth), sem precisar clicar pra abrir
+   MENU MOBILE — TIRA O BOTÃO "FILTROS"
 ===================================================== */
 
 @media screen and (max-width: 896px) {
 
-    /* O botão "Filtros" (ícone + texto) some por completo */
     .menu-navbar .dropdown .dropbtn {
-        display: none;
+        border: 1px solid rgba(21, 24, 33, 0.75);        display: none;
     }
 
-    /* O submenu deixa de ser uma gaveta escondida/expansível
-       e passa a aparecer sempre, como parte normal da lista */
    .menu-navbar .dropdown .submenu {
     position: static;
     display: flex;
@@ -1901,34 +1955,23 @@ img.logo {
     padding: 0;
     border: none;
     border-radius: 0;
-    background: rgba(17, 24, 39, 0.75);
+    background: rgba(21, 24, 33, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(100px);
     box-shadow: none;
     transition: none;
 }
 
-    /* "Ver todos" some — fica só as 3 categorias pedidas */
-    .menu-navbar .dropdown .submenu li:last-child {
-        display: none;
-    }
-
 }
 
 /* =====================================================
    RODAPÉ EMPILHADO NO MOBILE
-   -----------------------------------------------------
-   A logo (footer > div:has(img)) já tem order:3, ou seja,
-   vem depois dos links de navegação (.footer-content,
-   order:2). Bastava trocar o .footer de "row" para "column"
-   e centralizar tudo pra logo ficar centralizada logo
-   abaixo da lista de links (onde está "Privacidade").
 ===================================================== */
 
 @media screen and (max-width: 896px) {
 
     .footer {
-        flex-direction: column;
+        background: #151821;        flex-direction: column;
         align-items: center;
         text-align: center;
     }
@@ -1946,4 +1989,449 @@ img.logo {
         margin: 0 auto;
     }
 
+}
+
+/* ================================================================================================
+   AJUSTE FINAL DA NAVBAR / SUBMENU
+================================================================================================ */
+
+.navbar {
+    background: #151821;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.submenu,
+.submenu:hover {
+    background: #151821;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.menu-navbar .dropbtn,
+.dropbtn {
+    background: #151821;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.home-link,
+.font-navbar,
+.submenu li a,
+.cart-link,
+.menu-navbar a.cart-link,
+.dropbtn {
+    transition:
+        background 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        backdrop-filter 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        -webkit-backdrop-filter 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-link:hover,
+.font-navbar:hover,
+.submenu li a:hover,
+.cart-link:hover,
+.menu-navbar a.cart-link:hover,
+.dropbtn:hover,
+.dropdown.active .dropbtn {
+    background:
+        radial-gradient(
+            circle at 18% 10%,
+            rgba(21, 24, 33, 0.56) 0%,
+            rgba(21, 24, 33, 0.34) 24%,
+            rgba(21, 24, 33, 0.16) 52%,
+            rgba(21, 24, 33, 0.06) 72%,
+            transparent 100%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(21, 24, 33, 0.44) 0%,
+            rgba(21, 24, 33, 0.24) 38%,
+            rgba(21, 24, 33, 0.10) 62%,
+            rgba(21, 24, 33, 0.30) 100%
+        );
+
+    color: #fff;
+    border: none;
+
+    backdrop-filter: blur(22px) saturate(180%) brightness(1.06);
+    -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.06);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.28),
+        inset 0 -1px 0 rgba(21, 24, 33, 0.52),
+        inset 1px 0 0 rgba(255, 255, 255, 0.10),
+        inset -1px 0 0 rgba(21, 24, 33, 0.30),
+        0 7px 22px rgba(21, 24, 33, 0.28),
+        0 0 18px rgba(21, 24, 33, 0.16);
+
+    transform: translateY(-1px) scale(1.025);
+    font-style: normal;
+}
+
+.home-link:hover {
+    border-radius: 16px;
+}
+
+.font-navbar:hover,
+.submenu li a:hover,
+.cart-link:hover,
+.menu-navbar a.cart-link:hover {
+    border-radius: 40px;
+}
+
+.dropbtn:hover,
+.dropdown.active .dropbtn {
+    border-radius: 8px;
+}
+
+/* ================================================================================================
+   MEDIA QUERY — MOBILE / TABLET
+================================================================================================ */
+
+@media screen and (max-width: 896px) {
+
+    .navbar {
+        background: #151821;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .submenu,
+    .submenu:hover,
+    .menu-navbar .dropdown .submenu,
+    .menu-navbar .dropdown .submenu:hover {
+        background: #151821;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .menu-toggle {
+        background: #151821;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border: none;
+    }
+
+    .dropbtn,
+    .menu-navbar .dropbtn,
+    .menu-navbar .dropdown .dropbtn {
+        background: #151821;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .logo-mobile-item {
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo-mobile-item .logo-mobile {
+        display: block !important;
+    }
+
+    .home-icon-navbar,
+    .cart-icon-navbar,
+    .menu-toggle,
+    .submenu li a,
+    .menu-navbar .dropdown .dropbtn {
+        transition:
+            background 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+            box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+            backdrop-filter 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+            -webkit-backdrop-filter 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .home-icon-navbar:hover,
+    .cart-icon-navbar:hover,
+    .menu-toggle:hover,
+    .menu-toggle.active,
+    .submenu li a:hover,
+    .menu-navbar .dropdown .dropbtn:hover {
+        background:
+            radial-gradient(
+                circle at 18% 10%,
+                rgba(21, 24, 33, 0.56) 0%,
+                rgba(21, 24, 33, 0.34) 24%,
+                rgba(21, 24, 33, 0.16) 52%,
+                rgba(21, 24, 33, 0.06) 72%,
+                transparent 100%
+            ),
+            linear-gradient(
+                135deg,
+                rgba(21, 24, 33, 0.44) 0%,
+                rgba(21, 24, 33, 0.24) 38%,
+                rgba(21, 24, 33, 0.10) 62%,
+                rgba(21, 24, 33, 0.30) 100%
+            );
+
+        color: #fff;
+        border: none;
+
+        backdrop-filter: blur(22px) saturate(180%) brightness(1.06);
+        -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.06);
+
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.28),
+            inset 0 -1px 0 rgba(21, 24, 33, 0.52),
+            inset 1px 0 0 rgba(255, 255, 255, 0.10),
+            inset -1px 0 0 rgba(21, 24, 33, 0.30),
+            0 7px 22px rgba(21, 24, 33, 0.28),
+            0 0 18px rgba(21, 24, 33, 0.16);
+
+        font-style: normal;
+    }
+
+    .home-icon-navbar:hover {
+        transform: translateY(-50%) scale(1.025);
+        border-radius: 16px;
+    }
+
+    .cart-icon-navbar:hover {
+        transform: translate(-50%, -50%) scale(1.025);
+        border-radius: 40px;
+    }
+
+    .menu-toggle:hover,
+    .menu-toggle.active {
+        transform: translateY(-50%) scale(1.025);
+        border-radius: 10px;
+    }
+
+    .submenu li a:hover,
+    .menu-navbar .dropdown .dropbtn:hover {
+        transform: scale(1.025);
+        border-radius: 40px;
+    }
+
+    .home-icon-navbar:active,
+    .cart-icon-navbar:active,
+    .menu-toggle:active,
+    .submenu li a:active,
+    .menu-navbar .dropdown .dropbtn:active {
+        background:
+            radial-gradient(
+                circle at 18% 10%,
+                rgba(21, 24, 33, 0.56) 0%,
+                rgba(21, 24, 33, 0.34) 24%,
+                rgba(21, 24, 33, 0.16) 52%,
+                rgba(21, 24, 33, 0.06) 72%,
+                transparent 100%
+            ),
+            linear-gradient(
+                135deg,
+                rgba(21, 24, 33, 0.44) 0%,
+                rgba(21, 24, 33, 0.24) 38%,
+                rgba(21, 24, 33, 0.10) 62%,
+                rgba(21, 24, 33, 0.30) 100%
+            );
+
+        border: none;
+        backdrop-filter: blur(22px) saturate(180%) brightness(1.06);
+        -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.06);
+
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.28),
+            inset 0 -1px 0 rgba(21, 24, 33, 0.52),
+            inset 1px 0 0 rgba(255, 255, 255, 0.10),
+            inset -1px 0 0 rgba(21, 24, 33, 0.30),
+            0 7px 22px rgba(21, 24, 33, 0.28),
+            0 0 18px rgba(21, 24, 33, 0.16);
+    }
+
+    .home-icon-navbar:active {
+        transform: translateY(-50%) scale(1.025);
+    }
+
+    .cart-icon-navbar:active {
+        transform: translate(-50%, -50%) scale(1.025);
+    }
+
+    .menu-toggle:active {
+        transform: translateY(-50%) scale(1.025);
+    }
+}
+
+/* ================================================================================================
+   MENU MOBILE 100% SÓLIDO #151821
+================================================================================================ */
+
+@media screen and (max-width: 896px) {
+
+    .menu-navbar,
+    .menu-navbar.active {
+        background: #151821 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .logo-mobile-item {
+        background: #151821 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .logo-mobile-item .logo-mobile {
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .submenu,
+    .submenu:hover,
+    .dropdown .submenu,
+    .dropdown.active .submenu,
+    .menu-navbar .dropdown .submenu,
+    .menu-navbar .dropdown .submenu:hover {
+        background: #151821 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none;
+    }
+
+    .submenu li {
+        background: #151821;
+    }
+
+    .submenu li a:not(:hover):not(:active) {
+        background: #151821;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+    }
+
+    .menu-toggle:not(:hover):not(:active):not(.active) {
+        background: #151821 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+}
+
+/* ===== CORREÇÃO REBARBA MENU MOBILE #151821 ===== */
+@media screen and (max-width: 896px) {
+
+    .menu-navbar,
+    .menu-navbar.active {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        padding: 0 !important;
+
+        background: #151821 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+
+        border: none !important;
+        border-radius: 20px !important;
+
+        box-shadow: none !important;
+
+        box-sizing: border-box !important;
+
+        overflow: hidden !important;
+    }
+
+    .logo-mobile-item {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 18px 0 12px 0 !important;
+
+        background: #151821 !important;
+
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+
+        border: none !important;
+        box-shadow: none !important;
+
+        box-sizing: border-box !important;
+    }
+
+    .logo-mobile-item .logo-mobile {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .menu-navbar .dropdown {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: #151821 !important;
+
+        border: none !important;
+        box-shadow: none !important;
+
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    .submenu,
+    .submenu:hover,
+    .dropdown .submenu,
+    .dropdown.active .submenu,
+    .menu-navbar .dropdown .submenu,
+    .menu-navbar .dropdown .submenu:hover {
+        position: static !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 0 8px 0 !important;
+
+        background: #151821 !important;
+
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+
+        border: none !important;
+        border-radius: 0 !important;
+
+        box-shadow: none !important;
+
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    .submenu li {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: #151821 !important;
+
+        border: none !important;
+        box-shadow: none !important;
+
+        box-sizing: border-box !important;
+    }
+
+    .submenu li a:not(:hover):not(:active) {
+        width: 100% !important;
+        margin: 0 !important;
+
+        background: #151821 !important;
+
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+
+        border: none !important;
+        box-shadow: none !important;
+
+        box-sizing: border-box !important;
+    }
+
+    .submenu li:last-child,
+    .submenu li:last-child a {
+        border-radius: 0 0 20px 20px !important;
+    }
 }
