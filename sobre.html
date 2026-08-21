@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="icon" href="./Assets/buy2buy-icone-192.png" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="./Assets/buy2buy-icone.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="./Assets/buy2buy-icone-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./Assets/buy2buy-icone-16.png">
+    <link rel="apple-touch-icon" href="./Assets/buy2buy-icone-180.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buy2Buy | Sobre</title>
+
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./paginas-institucionais.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lilita+One&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-------------------------------- NAVBAR -------------------------------->
+
+    <nav class="navbar">
+
+        <a href="./pagina-de-produtos.html" class="home-icon-navbar" aria-label="Página inicial">
+            <ion-icon name="home-outline"></ion-icon>
+        </a>
+
+        <a href="./carrinho.html" class="cart-link cart-icon-navbar" aria-label="Carrinho">
+            <ion-icon name="cart-outline"></ion-icon>
+            <span class="cart-count">0</span>
+        </a>
+
+        <a href="./pagina-de-produtos.html" class="logo-navbar">
+            <img src="./Assets/buy2buy-icone.svg" alt="Logo da Buy2Buy" class="logo">
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="menu-navbar" id="menuNavbar">
+
+            <li class="logo-mobile-item">
+                <img src="./Assets/buy2buy-icone.svg" alt="Logo da Buy2Buy" class="logo logo-mobile">
+            </li>
+
+            <li>
+                <a class="font-navbar" href="./pagina-de-produtos.html" aria-label="Página inicial"><ion-icon name="home-outline"></ion-icon></a>
+            </li>
+
+            <!---------------- FILTROS ---------------->
+
+            <li class="dropdown">
+
+                <a href="#" class="dropbtn" aria-label="Filtros">
+                    <span class="dropbtn-hamburguer"><span></span><span></span><span></span></span>
+                    <span class="dropbtn-texto">Filtros</span>
+                </a>
+
+                <ul class="submenu">
+
+                    <li><a href="./pagina-de-produtos.html?categoria=smartwatches" class="filtro-link"><ion-icon name="watch-outline"></ion-icon> Smartwatches</a></li>
+                    <li><a href="./pagina-de-produtos.html?categoria=smartphones" class="filtro-link"><ion-icon name="phone-portrait-outline"></ion-icon> Smartphones</a></li>
+                    <li><a href="./pagina-de-produtos.html?categoria=fone" class="filtro-link"><ion-icon name="headset-outline"></ion-icon> Fones Bluetooth</a></li>
+
+                </ul>
+
+            </li>
+
+            <li class="cart-item-desktop">
+                <a href="./carrinho.html" class="cart-link">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    <span class="cart-count">0</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-------------------------------- SOBRE -------------------------------->
+
+    <main class="inst-main">
+
+        <div class="inst-hero">
+            <span class="inst-eyebrow">Sobre o projeto</span>
+            <h1>A <span>Buy2Buy</span> nasceu como um laboratório de front-end</h1>
+            <p>Uma loja de eletrônicos fictícia, construída do zero para colocar em prática — em um projeto real e completo — tudo que venho aprendendo em HTML, CSS e JavaScript.</p>
+        </div>
+
+        <div class="inst-card">
+            <h2>Por que eu criei esse portfólio</h2>
+            <p>A Buy2Buy é o meu projeto pessoal de estudos front-end. Em vez de treinar com exercícios isolados, escolhi montar uma loja virtual completa — do catálogo até a finalização da compra — para enfrentar os mesmos desafios que apareceriam em um produto de verdade: responsividade, estado entre páginas, componentes interativos e organização de CSS em um projeto que só cresce.</p>
+            <p>Cada tela nasceu de um problema concreto: como montar uma navbar com efeito de vidro fosco que funcione bem no mobile, como estruturar um carrossel de produtos por marca, como manter o carrinho sincronizado entre páginas usando localStorage. Resolver esses problemas, um de cada vez, é o que me fez evoluir de fato como desenvolvedor front-end.</p>
+        </div>
+
+        <div class="inst-timeline">
+
+            <div class="inst-timeline-node">
+                <span class="inst-timeline-dot"></span>
+                <span class="inst-timeline-label">Início</span>
+                <span class="inst-timeline-date">Junho / 2026</span>
+                <span class="inst-timeline-desc">Estrutura do site, navbar responsiva e catálogo de produtos.</span>
+            </div>
+
+            <div class="inst-timeline-node">
+                <span class="inst-timeline-dot"></span>
+                <span class="inst-timeline-label">Conclusão</span>
+                <span class="inst-timeline-date">Agosto / 2026</span>
+                <span class="inst-timeline-desc">Carrinho, fluxo de pagamento e responsividade em todo o site.</span>
+            </div>
+
+        </div>
+
+        <div class="inst-card">
+            <h2>O que foi construído</h2>
+            <p>Navbar com menu hambúrguer e submenu com efeito de vidro fosco, catálogo de produtos agrupado por marca com carrosséis horizontais, carrinho com contador e notificação de toast, fluxo de pagamento com Pix e cartão, e página de confirmação de pedido.</p>
+            <div class="inst-chips">
+                <span class="inst-chip">HTML5</span>
+                <span class="inst-chip">CSS3</span>
+                <span class="inst-chip">JavaScript</span>
+                <span class="inst-chip">LocalStorage</span>
+                <span class="inst-chip">Design responsivo</span>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-------------------------------- FOOTER -------------------------------->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="./contato.html">Contato</a></li>
+                <li><a href="#">Privacidade</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <img src="./Assets/buy2buy-icone.svg" alt="Logo da Buy2Buy no rodapé">
+        </div>
+
+        <div id="social-media">
+            <a href="https://www.instagram.com/ocaiqueecandidoo/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="https://www.linkedin.com/in/caique-candido-a59b031ba/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+            <a href="https://github.com/caiquecandido99" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+        </div>
+
+    </footer>
+
+
+    <!-------------------------------- IONICONS -------------------------------->
+
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+
+
+    <!-------------------------------- JAVASCRIPT -------------------------------->
+
+    <script src="./navbar responsiva.js"></script>
+
+    <!-- IMPORTANTE: cart.js precisa vir ANTES de qualquer script que use o carrinho -->
+    <script src="./cart.js"></script>
+
+</body>
+
+</html>

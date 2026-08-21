@@ -1,0 +1,368 @@
+/* =========================================================
+   PÁGINAS INSTITUCIONAIS — SOBRE & CONTATO
+   Arquivo dedicado, não interfere em styles.css / site-pg.css
+   ========================================================= */
+
+:root{
+  --inst-void: #070b16;
+  --inst-void-soft: #0d1424;
+  --inst-panel: rgba(255, 255, 255, 0.045);
+  --inst-panel-strong: rgba(255, 255, 255, 0.08);
+  --inst-border: rgba(255, 255, 255, 0.12);
+  --inst-signal: #4fd6ff;   /* trilha / acento tecnológico */
+  --inst-warm: #ffa15c;     /* cobre — segundo acento */
+  --inst-text: #eef2fb;
+  --inst-text-muted: #97a2c4;
+  --inst-font-display: "Lilita One", cursive;
+  --inst-font-body: "Inter", sans-serif;
+}
+
+.inst-main{
+  background: var(--inst-void);
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(79, 214, 255, 0.10), transparent 42%),
+    radial-gradient(circle at 88% 82%, rgba(255, 161, 92, 0.08), transparent 45%);
+  color: var(--inst-text);
+  font-family: var(--inst-font-body);
+  min-height: 70vh;
+  /* --inst-navbar-h: ajuste esse valor para a altura real da sua .navbar
+     se ela ainda cobrir o título (inspecione a .navbar no navegador e
+     confira a altura em px). */
+  --inst-navbar-h: 96px;
+  padding: calc(var(--inst-navbar-h) + 32px) 20px 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+@media (max-width: 560px){
+  .inst-main{
+    --inst-navbar-h: 76px;
+  }
+}
+
+.inst-eyebrow{
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--inst-signal);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.inst-hero{
+  text-align: center;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin: 12px 0 8px;
+  padding: 0 12px;
+}
+
+.inst-hero h1{
+  font-family: var(--inst-font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.01em;
+  margin: 0;
+  color: var(--inst-text);
+}
+
+.inst-hero h1 span{
+  color: var(--inst-signal);
+}
+
+.inst-hero p{
+  color: var(--inst-text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---------- Card base (glass, alinhado à estética do navbar) ---------- */
+
+.inst-card{
+  width: 100%;
+  max-width: 620px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.10);
+}
+
+.inst-card h2{
+  font-family: var(--inst-font-display);
+  font-weight: 400;
+  font-size: 1.35rem;
+  margin: 0 0 14px;
+  color: #16213a;
+}
+
+.inst-card p{
+  color: #5a6478;
+  line-height: 1.75;
+  margin: 0 0 12px;
+  font-size: 0.98rem;
+}
+
+.inst-card p:last-child{
+  margin-bottom: 0;
+}
+
+/* ---------- Linha do tempo (Sobre) ---------- */
+
+.inst-timeline{
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  padding: 8px 12px 0;
+}
+
+.inst-timeline::before{
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--inst-signal) 0 8px,
+    transparent 8px 16px
+  );
+  opacity: 0.6;
+}
+
+.inst-timeline-node{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 46%;
+  text-align: center;
+}
+
+.inst-timeline-dot{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--inst-void);
+  border: 2px solid var(--inst-signal);
+  box-shadow: 0 0 0 6px rgba(79, 214, 255, 0.12);
+  z-index: 1;
+}
+
+.inst-timeline-node:last-child .inst-timeline-dot{
+  border-color: var(--inst-warm);
+  box-shadow: 0 0 0 6px rgba(255, 161, 92, 0.14);
+}
+
+.inst-timeline-label{
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--inst-text-muted);
+}
+
+.inst-timeline-date{
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--inst-text);
+}
+
+.inst-timeline-desc{
+  font-size: 0.85rem;
+  color: var(--inst-text-muted);
+  line-height: 1.5;
+}
+
+/* ---------- Chips de tecnologia (Sobre) ---------- */
+
+.inst-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.inst-chip{
+  font-size: 0.8rem;
+  color: var(--inst-signal);
+  background: rgba(79, 214, 255, 0.08);
+  border: 1px solid rgba(79, 214, 255, 0.25);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-weight: 500;
+}
+
+/* ---------- Card de contato ---------- */
+
+.inst-contact-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.inst-avatar-ring{
+  position: relative;
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  padding: 5px;
+  margin-bottom: 18px;
+  background: conic-gradient(
+    from 0deg,
+    var(--inst-signal),
+    var(--inst-warm),
+    var(--inst-signal)
+  );
+}
+
+.inst-avatar-ring::after{
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px dashed rgba(79, 214, 255, 0.35);
+  animation: inst-spin 22s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .inst-avatar-ring::after{
+    animation: none;
+  }
+}
+
+@keyframes inst-spin{
+  to{ transform: rotate(360deg); }
+}
+
+.inst-avatar-ring img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 3px solid var(--inst-void-soft);
+}
+
+.inst-contact-card h2{
+  font-family: var(--inst-font-display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.inst-role{
+  color: var(--inst-signal);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.inst-education{
+  width: 100%;
+  margin: 22px 0 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.inst-education-item{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.inst-education-item ion-icon{
+  font-size: 1.3rem;
+  color: var(--inst-warm);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.inst-education-item strong{
+  display: block;
+  font-size: 0.92rem;
+  color: #16213a;
+}
+
+.inst-education-item span{
+  font-size: 0.82rem;
+  color: #5a6478;
+}
+
+.inst-socials{
+  display: flex;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.inst-social-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #f4f6fb;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  color: #16213a;
+  font-size: 1.4rem;
+  transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.inst-social-btn:hover,
+.inst-social-btn:focus-visible{
+  transform: translateY(-3px);
+  color: var(--inst-signal);
+  border-color: var(--inst-signal);
+  outline: none;
+}
+
+@media (max-width: 560px){
+  .inst-timeline{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .inst-timeline::before{
+    top: 0;
+    bottom: 0;
+    left: 6px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: repeating-linear-gradient(
+      180deg,
+      var(--inst-signal) 0 8px,
+      transparent 8px 16px
+    );
+  }
+
+  .inst-timeline-node{
+    width: 100%;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    padding-left: 26px;
+  }
+
+  .inst-timeline-node > *{
+    text-align: left;
+  }
+}
